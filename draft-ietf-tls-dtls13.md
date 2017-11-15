@@ -34,6 +34,12 @@ author:
        name: Hannes Tschofenig
        organization: ARM Limited
        email: hannes.tschofenig@arm.com
+       
+-
+       ins: T. Gondrom
+       name: Tobias Gondrom
+       organization: Huawei
+       email: tobias.gondrom@gondrom.org
 
  -
        ins: N. Modadugu
