@@ -2832,7 +2832,7 @@ of greater than 200ms, real-time deployments are less likely
 to have long latencies.<a href="#section-5.8.2-3.2" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-5.8.2-4">In settings where external information (for instance from an ICE <span>[<a href="#RFC8445" class="xref">RFC8445</a>]</span>
+<p id="section-5.8.2-4">In settings where there is external information (for instance from an ICE <span>[<a href="#RFC8445" class="xref">RFC8445</a>]</span>
 handshake, or from previous connections to the same server)
 about the RTT, implementations SHOULD use that to set the retransmit
 time.<a href="#section-5.8.2-4" class="pilcrow">¶</a></p>
@@ -2843,7 +2843,7 @@ to approximately 1.5 times the measured round trip time for that
 message. After a long period of idleness, no less
 than 10 times the current timer value, implementations MAY reset the
 timer to the initial value.<a href="#section-5.8.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.8.2-6">Note that because retransmission for handshake and not dataflow, the effect on
+<p id="section-5.8.2-6">Note that because retransmission is for the handshake and not dataflow, the effect on
 congestion of shorter timeouts is smaller than in generic protocols
 such as TCP or QUIC. Experience with DTLS 1.2, which uses a
 simpler "retransmit everything on timeout" approach, has not shown

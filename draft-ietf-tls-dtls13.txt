@@ -2018,10 +2018,10 @@ Rescorla, et al.         Expires 9 October 2021                [Page 36]
 Internet-Draft                  DTLS 1.3                      April 2021
 
 
-   In settings where external information (for instance from an ICE
-   [RFC8445] handshake, or from previous connections to the same server)
-   about the RTT, implementations SHOULD use that to set the retransmit
-   time.
+   In settings where there is external information (for instance from an
+   ICE [RFC8445] handshake, or from previous connections to the same
+   server) about the RTT, implementations SHOULD use that to set the
+   retransmit time.
 
    Implementations SHOULD retain the current timer value until a message
    is transmitted and acknowledged without having to be retransmitted,
@@ -2030,11 +2030,11 @@ Internet-Draft                  DTLS 1.3                      April 2021
    of idleness, no less than 10 times the current timer value,
    implementations MAY reset the timer to the initial value.
 
-   Note that because retransmission for handshake and not dataflow, the
-   effect on congestion of shorter timeouts is smaller than in generic
-   protocols such as TCP or QUIC.  Experience with DTLS 1.2, which uses
-   a simpler "retransmit everything on timeout" approach, has not shown
-   serious congestion problems in practice.
+   Note that because retransmission is for the handshake and not
+   dataflow, the effect on congestion of shorter timeouts is smaller
+   than in generic protocols such as TCP or QUIC.  Experience with DTLS
+   1.2, which uses a simpler "retransmit everything on timeout"
+   approach, has not shown serious congestion problems in practice.
 
 5.8.3.  Large Flight Sizes
 
