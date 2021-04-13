@@ -2039,6 +2039,9 @@ of spoofing attacks sending traffic to unrelated third parties.<a href="#section
 forgery (e.g., SCTP with SCTP-AUTH), then it is safer to send alerts
 because an attacker will have difficulty forging a datagram that will
 not be rejected by the transport layer.<a href="#section-4.5.2-2" class="pilcrow">¶</a></p>
+<p id="section-4.5.2-3">Note that because invalid records are rejected at a layer lower than
+the handshake state machine, they do not affect pending
+retransmission timers.<a href="#section-4.5.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="aead-limits">
@@ -2531,6 +2534,12 @@ other peer. <a href="#tab-flights" class="xref">Table 1</a> contains a complete 
               <td class="text-left" rowspan="1" colspan="1">x</td>
               <td class="text-left" rowspan="1" colspan="1"> </td>
               <td class="text-left" rowspan="1" colspan="1">Certificate, CertificateVerify, Finished</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">x</td>
+              <td class="text-left" rowspan="1" colspan="1">ACK</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">1</td>
