@@ -3024,7 +3024,9 @@ retransmissions. Note that the client sends an empty ACK message
 because it can only acknowledge Record 1 sent by the server once it has
 processed messages in Record 0 needed to establish epoch 2 keys, which
 are needed to encrypt or decrypt messages found in Record 1.  <a href="#ack-msg" class="xref">Section 7</a>
-provides the necessary background details for this interaction.<a href="#section-6-1" class="pilcrow">¶</a></p>
+provides the necessary background details for this interaction.
+Note: for simplicity we are not re-setting record numbers in this
+diagram, so "Record 1" is really "Epoch 2, Record 0".<a href="#section-6-1" class="pilcrow">¶</a></p>
 <span id="name-example-dtls-exchange-illus"></span><div id="dtls-msg-loss">
 <figure id="figure-12">
         <div class="artwork art-text alignLeft" id="section-6-2.1">
