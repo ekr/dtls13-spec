@@ -13,15 +13,15 @@
 (DTLS) protocol. DTLS 1.3 allows client/server applications to communicate over the
 Internet in a way that is designed to prevent eavesdropping, tampering, and message
 forgery. 
-       The DTLS 1.3 protocol is based on the Transport Layer Security (TLS)
+       The DTLS 1.3 protocol is intentionally based on the Transport Layer Security (TLS)
 1.3 protocol and provides equivalent security guarantees with the exception of order protection/non-replayability.  Datagram semantics of the underlying transport are preserved by the DTLS protocol. 
        This document obsoletes RFC 6347. 
     " name="description">
-<meta content="xml2rfc 3.12.0" name="generator">
+<meta content="xml2rfc 3.12.2" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-tls-dtls13-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.0
+  xml2rfc 3.12.2
     Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -830,7 +830,7 @@ address div.right {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rescorla, et al.</td>
-<td class="center">Expires 5 August 2022</td>
+<td class="center">Expires 29 August 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -846,12 +846,12 @@ address div.right {
 <a href="https://www.rfc-editor.org/rfc/rfc6347" class="eref">6347</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-02-01" class="published">1 February 2022</time>
+<time datetime="2022-02-25" class="published">25 February 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-08-05">5 August 2022</time></dd>
+<dd class="expires"><time datetime="2022-08-29">29 August 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -876,7 +876,7 @@ address div.right {
 (DTLS) protocol. DTLS 1.3 allows client/server applications to communicate over the
 Internet in a way that is designed to prevent eavesdropping, tampering, and message
 forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
-<p id="section-abstract-2">The DTLS 1.3 protocol is based on the Transport Layer Security (TLS)
+<p id="section-abstract-2">The DTLS 1.3 protocol is intentionally based on the Transport Layer Security (TLS)
 1.3 protocol and provides equivalent security guarantees with the exception of order protection/non-replayability.  Datagram semantics of the underlying transport are preserved by the DTLS protocol.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 <p id="section-abstract-3">This document obsoletes RFC 6347.<a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
@@ -899,7 +899,7 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 August 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 August 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1024,7 +1024,7 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
                 <p id="section-toc.1-1.5.2.5.1"><a href="#section-5.5" class="xref">5.5</a>.  <a href="#name-handshake-message-fragmenta" class="xref">Handshake Message Fragmentation and Reassembly</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.6">
-                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="xref">5.6</a>.  <a href="#name-endofearlydata-message" class="xref">EndOfEarlyData Message</a></p>
+                <p id="section-toc.1-1.5.2.6.1"><a href="#section-5.6" class="xref">5.6</a>.  <a href="#name-end-of-early-data" class="xref">End Of Early Data</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.7">
                 <p id="section-toc.1-1.5.2.7.1"><a href="#section-5.7" class="xref">5.7</a>.  <a href="#name-dtls-handshake-flights" class="xref">DTLS Handshake Flights</a></p>
@@ -1042,18 +1042,21 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
                     <p id="section-toc.1-1.5.2.8.2.3.1"><a href="#section-5.8.3" class="xref">5.8.3</a>.  <a href="#name-large-flight-sizes" class="xref">Large Flight Sizes</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.8.2.4">
-                    <p id="section-toc.1-1.5.2.8.2.4.1"><a href="#section-5.8.4" class="xref">5.8.4</a>.  <a href="#name-state-machine-duplication-f" class="xref">State Machine Duplication for Post-Handshake Messages</a></p>
+                    <p id="section-toc.1-1.5.2.8.2.4.1"><a href="#section-5.8.4" class="xref">5.8.4</a>.  <a href="#name-state-machine-duplication-f" class="xref">State machine duplication for post-handshake messages</a></p>
 </li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.9">
-                <p id="section-toc.1-1.5.2.9.1"><a href="#section-5.9" class="xref">5.9</a>.  <a href="#name-cryptographic-label-prefix" class="xref">Cryptographic Label Prefix</a></p>
+                <p id="section-toc.1-1.5.2.9.1"><a href="#section-5.9" class="xref">5.9</a>.  <a href="#name-certificateverify-and-finis" class="xref">CertificateVerify and Finished Messages</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.10">
-                <p id="section-toc.1-1.5.2.10.1"><a href="#section-5.10" class="xref">5.10</a>. <a href="#name-alert-messages" class="xref">Alert Messages</a></p>
+                <p id="section-toc.1-1.5.2.10.1"><a href="#section-5.10" class="xref">5.10</a>. <a href="#name-cryptographic-label-prefix" class="xref">Cryptographic Label Prefix</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.11">
-                <p id="section-toc.1-1.5.2.11.1"><a href="#section-5.11" class="xref">5.11</a>. <a href="#name-establishing-new-associatio" class="xref">Establishing New Associations with Existing Parameters</a></p>
+                <p id="section-toc.1-1.5.2.11.1"><a href="#section-5.11" class="xref">5.11</a>. <a href="#name-alert-messages" class="xref">Alert Messages</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.12">
+                <p id="section-toc.1-1.5.2.12.1"><a href="#section-5.12" class="xref">5.12</a>. <a href="#name-establishing-new-associatio" class="xref">Establishing New Associations with Existing Parameters</a></p>
 </li>
             </ul>
 </li>
@@ -1100,7 +1103,7 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.12.1"><a href="#section-12" class="xref">12</a>. <a href="#name-changes-since-dtls-12" class="xref">Changes since DTLS 1.2</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#section-13" class="xref">13</a>. <a href="#name-updates-affecting-dtls-12" class="xref">Updates Affecting DTLS 1.2</a></p>
+            <p id="section-toc.1-1.13.1"><a href="#section-13" class="xref">13</a>. <a href="#name-updates-affecting-dtls-12" class="xref">Updates affecting DTLS 1.2</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.14">
             <p id="section-toc.1-1.14.1"><a href="#section-14" class="xref">14</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
@@ -1151,13 +1154,19 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
             <p id="section-toc.1-1.18.1"><a href="#appendix-C" class="xref">Appendix C</a>.  <a href="#name-implementation-pitfalls" class="xref">Implementation Pitfalls</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.19">
-            <p id="section-toc.1-1.19.1"><a href="#appendix-D" class="xref">Appendix D</a>.  <a href="#name-contributors" class="xref">Contributors</a></p>
+            <p id="section-toc.1-1.19.1"><a href="#appendix-D" class="xref">Appendix D</a>.  <a href="#name-history" class="xref">History</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.20">
-            <p id="section-toc.1-1.20.1"><a href="#appendix-E" class="xref">Appendix E</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
+            <p id="section-toc.1-1.20.1"><a href="#appendix-E" class="xref">Appendix E</a>.  <a href="#name-working-group-information" class="xref">Working Group Information</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.21">
-            <p id="section-toc.1-1.21.1"><a href="#appendix-F" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+            <p id="section-toc.1-1.21.1"><a href="#appendix-F" class="xref">Appendix F</a>.  <a href="#name-contributors" class="xref">Contributors</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.22">
+            <p id="section-toc.1-1.22.1"><a href="#appendix-G" class="xref">Appendix G</a>.  <a href="#name-acknowledgements" class="xref">Acknowledgements</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.23">
+            <p id="section-toc.1-1.23.1"><a href="#appendix-H" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1168,28 +1177,31 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">The primary goal of the TLS protocol is to establish an authenticated,
-confidentiality- and integrity-protected channel between two communicating peers.
+<p id="section-1-1">RFC EDITOR: PLEASE REMOVE THE FOLLOWING PARAGRAPH<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-2">The source for this draft is maintained in GitHub. Suggested changes
+should be submitted as pull requests at https://github.com/tlswg/dtls13-spec.
+Instructions are on that page as well. Editorial changes can be managed in GitHub,
+but any substantive change should be discussed on the TLS mailing list.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-3">The primary goal of the TLS protocol is to establish an authenticated,
+confidentiality and integrity protected channel between two communicating peers.
 The TLS protocol is composed of two layers:
-the TLS record protocol and the TLS handshake protocol. However, TLS must
-run over a reliable transport channel -- typically TCP <span>[<a href="#RFC0793" class="xref">RFC0793</a>]</span>.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">There are applications that use UDP <span>[<a href="#RFC0768" class="xref">RFC0768</a>]</span> as a transport and
-the Datagram Transport Layer Security (DTLS) protocol has been developed
-to offer communication security protection for those applications.
-TLS is deliberately designed to be
+the TLS Record Protocol and the TLS Handshake Protocol. However, TLS must
+run over a reliable transport channel -- typically TCP <span>[<a href="#RFC0793" class="xref">RFC0793</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">There are applications that use UDP <span>[<a href="#RFC0768" class="xref">RFC0768</a>]</span> as a transport and to offer communication
+security protection for those applications the Datagram Transport Layer
+Security (DTLS) protocol has been developed. DTLS is deliberately designed to be
 as similar to TLS as possible, both to minimize new security invention and to
-maximize the amount of code and infrastructure reuse.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">DTLS 1.0 <span>[<a href="#RFC4347" class="xref">RFC4347</a>]</span> was originally defined as a delta from TLS 1.1 <span>[<a href="#RFC4346" class="xref">RFC4346</a>]</span>, and
+maximize the amount of code and infrastructure reuse.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<p id="section-1-5">DTLS 1.0 <span>[<a href="#RFC4347" class="xref">RFC4347</a>]</span> was originally defined as a delta from TLS 1.1 <span>[<a href="#RFC4346" class="xref">RFC4346</a>]</span> and
 DTLS 1.2 <span>[<a href="#RFC6347" class="xref">RFC6347</a>]</span> was defined as a series of deltas to TLS 1.2 <span>[<a href="#RFC5246" class="xref">RFC5246</a>]</span>.  There
 is no DTLS 1.1; that version number was skipped in order to harmonize version numbers
 with TLS.  This specification describes the most current version of the DTLS protocol
-as a delta from TLS 1.3 <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>. It obsoletes DTLS 1.2.<a href="#section-1-3" class="pilcrow">¶</a></p>
-<p id="section-1-4">Implementations that speak both DTLS 1.2 and DTLS 1.3 can interoperate with those
+as a delta from TLS 1.3 <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>. It obsoletes DTLS 1.2.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<p id="section-1-6">Implementations that speak both DTLS 1.2 and DTLS 1.3 can interoperate with those
 that speak only DTLS 1.2 (using DTLS 1.2 of course), just as TLS 1.3 implementations
 can interoperate with TLS 1.2 (see Appendix D of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> for details).
-While backwards compatibility with DTLS 1.0 is possible, the use of DTLS 1.0 is not
-recommended, as explained in Section 3.1.2 of <span>[<a href="#RFC7525" class="xref">RFC7525</a>]</span>.
-<span>[<a href="#DEPRECATE" class="xref">DEPRECATE</a>]</span> forbids the use of DTLS 1.0.<a href="#section-1-4" class="pilcrow">¶</a></p>
+While backwards compatibility with DTLS 1.0 is possible the use of DTLS 1.0 is not
+recommended as explained in Section 3.1.2 of RFC 7525 <span>[<a href="#RFC7525" class="xref">RFC7525</a>]</span> and <span>[<a href="#DEPRECATE" class="xref">DEPRECATE</a>]</span>.<a href="#section-1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-terminology">
@@ -1239,7 +1251,7 @@ this document as if it were a distinct message.<a href="#section-2-4" class="pil
 based on the encoding format defined in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> and earlier (D)TLS specifications.<a href="#section-2-5" class="pilcrow">¶</a></p>
 <p id="section-2-6">The reader is also assumed to be familiar with <span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span>
 as this document applies the CID functionality to DTLS 1.3.<a href="#section-2-6" class="pilcrow">¶</a></p>
-<p id="section-2-7">Figures in this document illustrate various combinations of the DTLS protocol exchanges, and the symbols have the following meaning:<a href="#section-2-7" class="pilcrow">¶</a></p>
+<p id="section-2-7">Figures in this document illustrate various combinations of the DTLS protocol exchanges and the symbols have the following meaning:<a href="#section-2-7" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2-8.1">'+'  indicates noteworthy extensions sent in the previously noted message.<a href="#section-2-8.1" class="pilcrow">¶</a>
 </li>
@@ -1258,18 +1270,18 @@ as this document applies the CID functionality to DTLS 1.3.<a href="#section-2-6
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-dtls-design-rationale-and-o" class="section-name selfRef">DTLS Design Rationale and Overview</a>
       </h2>
 <p id="section-3-1">The basic design philosophy of DTLS is to construct "TLS over datagram transport".
-Datagram transport neither requires nor provides reliable or in-order delivery of data.
+Datagram transport does not require nor provide reliable or in-order delivery of data.
 The DTLS protocol preserves this property for application data.
-Applications such as media streaming, Internet telephony, and online gaming use
+Applications, such as media streaming, Internet telephony, and online gaming use
 datagram transport for communication due to the delay-sensitive nature
 of transported data.  The behavior of such applications is unchanged when the
 DTLS protocol is used to secure communication, since the DTLS protocol
 does not compensate for lost or reordered data traffic. Note that while
-low-latency streaming and gaming use DTLS to protect data (e.g., for
+low-latency streaming and gaming use DTLS to protect data (e.g. for
 protection of a WebRTC data channel), telephony utilizes DTLS for
-key establishment and the Secure Real-time Transport Protocol (SRTP) for
+key establishment, and Secure Real-time Transport Protocol (SRTP) for
 protection of data <span>[<a href="#RFC5763" class="xref">RFC5763</a>]</span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">TLS cannot be used directly over datagram transports for the following four reasons:<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-2">TLS cannot be used directly over datagram transports the following five reasons:<a href="#section-3-2" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-3-3">
 <li id="section-3-3.1">TLS relies on an implicit sequence number on records.  If a record is not
 received, then the recipient will use the wrong sequence number when
@@ -1282,14 +1294,19 @@ order is an error.  The DTLS handshake includes message sequence
 numbers to enable fragmented message reassembly and in-order
 delivery in case datagrams are lost or reordered.<a href="#section-3-3.2" class="pilcrow">¶</a>
 </li>
-        <li id="section-3-3.3">Handshake messages are potentially larger than can be contained in a single
-datagram.  DTLS adds fields to handshake messages to support fragmentation
-and reassembly.<a href="#section-3-3.3" class="pilcrow">¶</a>
+        <li id="section-3-3.3">During the handshake, messages are implicitly acknowledged by other handshake
+messages. Some handshake messages, such as the NewSessionTicket message, do
+not result in any direct response that would allow the sender to detect loss.
+DTLS adds an acknowledgment message to enable better loss recovery.<a href="#section-3-3.3" class="pilcrow">¶</a>
 </li>
-        <li id="section-3-3.4">Datagram transport protocols are susceptible to abusive behavior
-effecting denial-of-service (DoS) attacks against nonparticipants.  DTLS adds a
+        <li id="section-3-3.4">Handshake messages are potentially larger than can be contained in a single
+datagram.  DTLS adds fields to handshake messages to support fragmentation
+and reassembly.<a href="#section-3-3.4" class="pilcrow">¶</a>
+</li>
+        <li id="section-3-3.5">Datagram transport protocols, like UDP, are susceptible to abusive behavior
+effecting denial of service attacks against nonparticipants.  DTLS adds a
 return-routability check and DTLS 1.3 uses the TLS 1.3 HelloRetryRequest message
-(see <a href="#dos" class="xref">Section 5.1</a> for details).<a href="#section-3-3.4" class="pilcrow">¶</a>
+(see <a href="#dos" class="xref">Section 5.1</a> for details).<a href="#section-3-3.5" class="pilcrow">¶</a>
 </li>
       </ol>
 <div id="packet-loss">
@@ -1318,14 +1335,14 @@ phase of the DTLS handshake:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
-<a href="#name-dtls-retransmission-example" class="selfRef">DTLS Retransmission Example</a>
+<a href="#name-dtls-retransmission-example" class="selfRef">DTLS retransmission example</a>
           </figcaption></figure>
 </div>
 <p id="section-3.1-3">Once the client has transmitted the ClientHello message, it expects
 to see a HelloRetryRequest or a ServerHello from the server. However, if the
 timer expires, the client knows that either the
 ClientHello or the response from the server has been lost, which
-causes the client
+causes the the client
 to retransmit the ClientHello. When the server receives the retransmission,
 it knows to retransmit its HelloRetryRequest or ServerHello.<a href="#section-3.1-3" class="pilcrow">¶</a></p>
 <p id="section-3.1-4">The server also maintains a retransmission timer for messages it
@@ -1378,7 +1395,7 @@ is the same as in IPsec AH/ESP, by maintaining a bitmap window of
 received records.  Records that are too old to fit in the window and
 records that have previously been received are silently discarded.
 The replay detection feature is optional, since packet duplication is
-not always malicious but can also occur due to routing errors.
+not always malicious, but can also occur due to routing errors.
 Applications may conceivably detect duplicate packets and accordingly
 modify their data transmission strategy.<a href="#section-3.4-1" class="pilcrow">¶</a></p>
 </section>
@@ -1397,18 +1414,26 @@ also different from the DTLS 1.2 record layer.<a href="#section-4-1" class="pilc
 type fields.<a href="#section-4-2.1" class="pilcrow">¶</a>
 </li>
         <li id="section-4-2.2">DTLS adds an epoch and sequence number to the TLS record header.
-This sequence number allows the recipient to correctly decrypt and verify DTLS records.
+This sequence number allows the recipient to correctly verify the DTLS MAC.
 However, the number of bits used for the epoch and sequence number fields in
-the DTLSCiphertext structure has been reduced from those in previous
+the DTLSCiphertext structure have been reduced from those in previous
 versions.<a href="#section-4-2.2" class="pilcrow">¶</a>
 </li>
-        <li id="section-4-2.3">The DTLSCiphertext structure has a variable-length header.<a href="#section-4-2.3" class="pilcrow">¶</a>
+        <li id="section-4-2.3">The DTLS epoch serialized in DTLSPlaintext is 2 octets long for compatibility
+with DTLS 1.2. However, this value is set as the least significant 2 octets
+of the connection epoch, which is an 8 octet counter incremented on every
+KeyUpdate. See <a href="#seq-and-epoch" class="xref">Section 4.2</a> for details. The sequence number is set to
+be the low order 48 bits of the 64 bit sequence number. Plaintext records
+MUST NOT be sent with sequence numbers that would exceed 2^48-1, so the
+upper 16 bits will always be 0.<a href="#section-4-2.3" class="pilcrow">¶</a>
+</li>
+        <li id="section-4-2.4">The DTLSCiphertext structure has a variable length header.<a href="#section-4-2.4" class="pilcrow">¶</a>
 </li>
       </ol>
 <p id="section-4-3">DTLSPlaintext records are used to send unprotected records and DTLSCiphertext
 records are used to send protected records.<a href="#section-4-3" class="pilcrow">¶</a></p>
 <p id="section-4-4">The DTLS record formats are shown below. Unless explicitly stated the
-meaning of the fields is unchanged from previous TLS/DTLS versions.<a href="#section-4-4" class="pilcrow">¶</a></p>
+meaning of the fields is unchanged from previous TLS / DTLS versions.<a href="#section-4-4" class="pilcrow">¶</a></p>
 <span id="name-dtls-13-record-formats"></span><div id="dtls-record">
 <figure id="figure-2">
         <div class="alignLeft art-text artwork" id="section-4-5.1">
@@ -1440,25 +1465,31 @@ meaning of the fields is unchanged from previous TLS/DTLS versions.<a href="#sec
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-4-6">
         <dt id="section-4-6.1">
-legacy_record_version:  </dt>
+legacy_record_version  </dt>
         <dd style="margin-left: 1.5em" id="section-4-6.2">
           <p id="section-4-6.2.1">This value MUST be set to {254, 253} for all records other
 than the initial ClientHello (i.e., one not generated after a HelloRetryRequest),
 where it may also be {254, 255} for compatibility purposes.
-It MUST be ignored for all purposes. See <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, Appendix D.1
+It MUST be ignored for all purposes. See <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>; Appendix D.1
 for the rationale for this.<a href="#section-4-6.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-4-6.3">
-unified_hdr:  </dt>
+epoch  </dt>
         <dd style="margin-left: 1.5em" id="section-4-6.4">
-          <p id="section-4-6.4.1">The unified header (unified_hdr) is a structure of variable length, shown in <a href="#cid_hdr" class="xref">Figure 3</a>.<a href="#section-4-6.4.1" class="pilcrow">¶</a></p>
+          <p id="section-4-6.4.1">The least significant 2 bytes of the connection epoch value.<a href="#section-4-6.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-4-6.5">
-encrypted_record:  </dt>
+unified_hdr:  </dt>
         <dd style="margin-left: 1.5em" id="section-4-6.6">
-          <p id="section-4-6.6.1">The encrypted form of the serialized DTLSInnerPlaintext structure.<a href="#section-4-6.6.1" class="pilcrow">¶</a></p>
+          <p id="section-4-6.6.1">The unified header (unified_hdr) is a structure of variable length, as shown in <a href="#cid_hdr" class="xref">Figure 3</a>.<a href="#section-4-6.6.1" class="pilcrow">¶</a></p>
+</dd>
+        <dd class="break"></dd>
+<dt id="section-4-6.7">
+encrypted_record:  </dt>
+        <dd style="margin-left: 1.5em" id="section-4-6.8">
+          <p id="section-4-6.8.1">The AEAD-encrypted form of the serialized DTLSInnerPlaintext structure.<a href="#section-4-6.8.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -1524,13 +1555,13 @@ L:  </dt>
 <dt id="section-4-8.9">
 E:  </dt>
         <dd style="margin-left: 1.5em" id="section-4-8.10">
-          <p id="section-4-8.10.1">The two low bits (0x03) include the low-order two bits of the epoch.<a href="#section-4-8.10.1" class="pilcrow">¶</a></p>
+          <p id="section-4-8.10.1">The two low bits (0x03) include the low order two bits of the epoch.<a href="#section-4-8.10.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-4-8.11">
 Connection ID:  </dt>
         <dd style="margin-left: 1.5em" id="section-4-8.12">
-          <p id="section-4-8.12.1">Variable-length CID. The CID functionality
+          <p id="section-4-8.12.1">Variable length CID. The CID functionality
 is described in <span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span>. An example
 can be found in <a href="#connection-id-example" class="xref">Section 9.1</a>.<a href="#section-4-8.12.1" class="pilcrow">¶</a></p>
 </dd>
@@ -1538,7 +1569,7 @@ can be found in <a href="#connection-id-example" class="xref">Section 9.1</a>.<a
 <dt id="section-4-8.13">
 Sequence Number:  </dt>
         <dd style="margin-left: 1.5em" id="section-4-8.14">
-          <p id="section-4-8.14.1">The low-order 8 or 16 bits of the record sequence number.  This value is 16
+          <p id="section-4-8.14.1">The low order 8 or 16 bits of the record sequence number.  This value is 16
 bits if the S bit is set to 1, and 8 bits if the S bit is 0.<a href="#section-4-8.14.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
@@ -1561,7 +1592,7 @@ underlying transport datagram.<a href="#section-4-9" class="pilcrow">¶</a></p>
 +-+-+-+-+-+-+-+-+     +-+-+-+-+-+-+-+-+     +-+-+-+-+-+-+-+-+
 | Content Type  |     |0|0|1|1|1|1|E E|     |0|0|1|0|0|0|E E|
 +-+-+-+-+-+-+-+-+     +-+-+-+-+-+-+-+-+     +-+-+-+-+-+-+-+-+
-|   16 bit      |     |               |     |8 bit Seq. No. |
+|   16 bit      |     |               |     |8-bit Seq. No. |
 |   Version     |     / Connection ID /     +-+-+-+-+-+-+-+-+
 +-+-+-+-+-+-+-+-+     |               |     |               |
 |   16 bit      |     +-+-+-+-+-+-+-+-+     |   Encrypted   |
@@ -1593,7 +1624,7 @@ underlying transport datagram.<a href="#section-4-9" class="pilcrow">¶</a></p>
 </div>
 <p id="section-4-12">The length field MAY be omitted by clearing the L bit, which means that the
 record consumes the entire rest of the datagram in the lower
-level transport. In this case, it is not possible to have multiple
+level transport. In this case it is not possible to have multiple
 DTLSCiphertext format records without length fields in the same datagram.
 Omitting the length field MUST only be used for the last record in a
 datagram. Implementations MAY mix records with and without length
@@ -1608,35 +1639,27 @@ unpacked RecordNumber structure, as shown below:<a href="#section-4-14" class="p
 <div class="alignLeft art-text artwork" id="section-4-15">
 <pre>
     struct {
-        uint16 epoch;
-        uint48 sequence_number;
+        uint64 epoch;
+        uint64 sequence_number;
     } RecordNumber;
 </pre><a href="#section-4-15" class="pilcrow">¶</a>
 </div>
-<p id="section-4-16">This 64-bit value is used in the ACK message as well as in the "record_sequence_number"
-input to the Authenticated Encryption with Associated Data (AEAD) function.<a href="#section-4-16" class="pilcrow">¶</a></p>
+<p id="section-4-16">This 128-bit value is used in the ACK message.<a href="#section-4-16" class="pilcrow">¶</a></p>
 <p id="section-4-17">The entire header value shown in <a href="#hdr_examples" class="xref">Figure 4</a> (but prior to record number
-encryption; see <a href="#rne" class="xref">Section 4.2.3</a>) is used as the additional data value for the 
-AEAD
+encryption, see <a href="#rne" class="xref">Section 4.2.3</a>) is used as as the additional data value for the AEAD
 function. For instance, if the minimal variant is used,
-the Associated Data (AD)
-is 2 octets long. Note that this design is different from the additional data
-calculation for DTLS 1.2 and for DTLS 1.2 with Connection IDs.<a href="#section-4-17" class="pilcrow">¶</a></p>
+the AAD is 2 octets long. Note that this design is different from the additional data
+calculation for DTLS 1.2 and for DTLS 1.2 with Connection ID.
+In DTLS 1.3 the 64-bit sequence_number is used as the sequence number for
+the AEAD computation; unlike DTLS 1.2, the epoch is not included.<a href="#section-4-17" class="pilcrow">¶</a></p>
 <div id="demultiplexing-dtls-records">
 <section id="section-4.1">
         <h3 id="name-demultiplexing-dtls-records">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-demultiplexing-dtls-records" class="section-name selfRef">Demultiplexing DTLS Records</a>
         </h3>
-<p id="section-4.1-1">DTLS 1.3's header format is more complicated to demux than
-DTLS 1.2, which always carried the content type as the first
-byte. As described in <a href="#demux" class="xref">Figure 5</a>, the first byte determines how an incoming
-DTLS record is demultiplexed. The first 3 bits of the first byte
-distinguish a DTLS 1.3 encrypted record from record types used in
-previous DTLS versions and plaintext DTLS 1.3 record types. Hence, the
-range 32 (0b0010 0000) to 63 (0b0011 1111) needs to be excluded
-from future allocations by IANA to avoid problems while demultiplexing;
-see <a href="#iana-considerations" class="xref">Section 14</a>.
-Implementations can demultiplex DTLS 1.3 records
+<p id="section-4.1-1">DTLS 1.3 uses a variable length record format and hence the
+demultiplexing process is more complex since more header formats
+need to be distinguished. Implementations can demultiplex DTLS 1.3 records
 by examining the first byte as follows:<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.1-2.1">If the first byte is alert(21), handshake(22), or ack(proposed, 26),
@@ -1652,7 +1675,7 @@ protected portion.<a href="#section-4.1-2.2" class="pilcrow">¶</a>
 deprotection, as described in <a href="#handling-invalid-records" class="xref">Section 4.5.2</a>.<a href="#section-4.1-2.3" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-4.1-3"><a href="#demux" class="xref">Figure 5</a> shows this demultiplexing procedure graphically,
+<p id="section-4.1-3"><a href="#demux" class="xref">Figure 5</a> shows this demultiplexing procedure graphically
 taking DTLS 1.3 and earlier versions of DTLS into account.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 <span id="name-demultiplexing-dtls-12-and-"></span><div id="demux">
 <figure id="figure-5">
@@ -1664,14 +1687,14 @@ taking DTLS 1.3 and earlier versions of DTLS into account.<a href="#section-4.1-
              |                |
              |   OCT == 20   -+--&gt; ChangeCipherSpec (DTLS &lt;1.3)
              |   OCT == 21   -+--&gt; Alert (Plaintext)
-             |   OCT == 22   -+--&gt; DTLSHandshake (Plaintext)
+             |   OCT == 22   -+--&gt; Handshake (Plaintext)
              |   OCT == 23   -+--&gt; Application Data (DTLS &lt;1.3)
              |   OCT == 24   -+--&gt; Heartbeat (DTLS &lt;1.3)
-packet  --&gt;  |   OCT == 25   -+--&gt; DTLSCiphertext with CID (DTLS 1.2)
+packet  --&gt;  |   OCT == 25   -+--&gt; DTLSCipherText with CID (DTLS 1.2)
              |   OCT == 26   -+--&gt; ACK (DTLS 1.3, Plaintext)
              |                |
              |                |   /+----------------+\
-             | 31 &lt; OCT &lt; 64 -+--&gt; |DTLSCiphertext  |
+             | 31 &lt; OCT &lt; 64 -+--&gt; |DTLS Ciphertext |
              |                |    |(header bits    |
              |      else      |    | start with 001)|
              |       |        |   /+-------+--------+\
@@ -1687,11 +1710,11 @@ packet  --&gt;  |   OCT == 25   -+--&gt; DTLSCiphertext with CID (DTLS 1.2)
                             | (DCT)          |
                             |                |
                             |     DCT == 21 -+--&gt; Alert
-                            |     DCT == 22 -+--&gt; DTLSHandshake
+                            |     DCT == 22 -+--&gt; Handshake
                             |     DCT == 23 -+--&gt; Application Data
                             |     DCT == 24 -+--&gt; Heartbeat
                             |     DCT == 26 -+--&gt; ACK
-                            |     else ------+--&gt; Errorbg
+                            |                |
                             +----------------+
 </pre>
 </div>
@@ -1699,9 +1722,20 @@ packet  --&gt;  |   OCT == 25   -+--&gt; DTLSCiphertext with CID (DTLS 1.2)
 <a href="#name-demultiplexing-dtls-12-and-" class="selfRef">Demultiplexing DTLS 1.2 and DTLS 1.3 Records</a>
           </figcaption></figure>
 </div>
+<p id="section-4.1-5">Note: The optimized DTLS header format shown in <a href="#cid_hdr" class="xref">Figure 3</a>, which
+does not carry the Content Type in the Unified Header format, requires
+a different demultilexing strategy compared to what was used in previous
+DTLS versions where the Content Type was conveyed in every record.
+As described in <a href="#demux" class="xref">Figure 5</a>, the first byte determines how an incoming
+DTLS record is demultiplexed. The first 3 bits of the first byte
+distinguish a DTLS 1.3 encrypted record from record types used in
+previous DTLS versions and plaintext DTLS 1.3 record types. Hence, the
+range 32 (0b0010 0000) to 63 (0b0011 1111) needs to be excluded
+from future allocations by IANA to avoid problems while demultiplexing;
+see <a href="#iana-considerations" class="xref">Section 14</a>.<a href="#section-4.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="sequence-number-and-epoch">
+<div id="seq-and-epoch">
 <section id="section-4.2">
         <h3 id="name-sequence-number-and-epoch">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-sequence-number-and-epoch" class="section-name selfRef">Sequence Number and Epoch</a>
@@ -1720,7 +1754,7 @@ are provided in <a href="#dtls-epoch" class="xref">Section 6.1</a>.<a href="#sec
           </h4>
 <p id="section-4.2.1-1">Because DTLS records could be reordered, a record from epoch
 M may be received after epoch N (where N &gt; M) has begun.
-Implementations SHOULD discard records from earlier epochs but
+Implementations SHOULD discard records from earlier epochs, but
 MAY choose to
 retain keying material from previous epochs for up to the default MSL
 specified for TCP <span>[<a href="#RFC0793" class="xref">RFC0793</a>]</span> to allow for packet reordering.  (Note that
@@ -1739,10 +1773,8 @@ on when records may be sent still apply, and the receiver treats the
 records as if they were sent in the right order.<a href="#section-4.2.1-2" class="pilcrow">¶</a></p>
 <p id="section-4.2.1-3">Implementations MUST send retransmissions of lost messages using the same
 epoch and keying material as the original transmission.<a href="#section-4.2.1-3" class="pilcrow">¶</a></p>
-<p id="section-4.2.1-4">Implementations MUST either abandon an association or rekey prior to
+<p id="section-4.2.1-4">Implementations MUST either abandon an association or re-key prior to
 allowing the sequence number to wrap.<a href="#section-4.2.1-4" class="pilcrow">¶</a></p>
-<p id="section-4.2.1-5">Implementations MUST NOT allow the epoch to wrap, but instead MUST
-establish a new association, terminating the old association.<a href="#section-4.2.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="reconstructing">
@@ -1752,8 +1784,9 @@ establish a new association, terminating the old association.<a href="#section-4
           </h4>
 <p id="section-4.2.2-1">When receiving protected DTLS records, the recipient does not
 have a full epoch or sequence number value in the record and so there is some
-opportunity for ambiguity.  Because the full epoch and sequence number
-are used to compute the per-record nonce, failure to reconstruct these
+opportunity for ambiguity.  Because the full sequence number
+is used to compute the per-record nonce and the epoch determines
+the keys, failure to reconstruct these
 values leads to failure to deprotect the record, and so implementations
 MAY use a mechanism of their choice to determine the full values.
 This section provides an algorithm which is comparatively simple
@@ -1766,7 +1799,7 @@ current epoch.<a href="#section-4.2.2-2" class="pilcrow">¶</a></p>
 <p id="section-4.2.2-3">During the handshake phase, the epoch bits unambiguously indicate the
 correct key to use. After the
 handshake is complete, if the epoch bits do not match those from the
-current epoch, implementations SHOULD use the most recent past epoch
+current epoch implementations SHOULD use the most recent past epoch
 which has matching bits, and then reconstruct the sequence number for
 that epoch as described above.<a href="#section-4.2.2-3" class="pilcrow">¶</a></p>
 </section>
@@ -1780,7 +1813,7 @@ that epoch as described above.<a href="#section-4.2.2-3" class="pilcrow">¶</a><
 also encrypted. The basic pattern is that the underlying encryption
 algorithm used with the AEAD algorithm is used to generate a mask
 which is then XORed with the sequence number.<a href="#section-4.2.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-2">When the AEAD is based on AES, then the mask is generated by
+<p id="section-4.2.3-2">When the AEAD is based on AES, then the Mask is generated by
 computing AES-ECB on the first 16 bytes of the ciphertext:<a href="#section-4.2.3-2" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.2.3-3">
 <pre>
@@ -1799,28 +1832,28 @@ block function (Section 2.3 of <span>[<a href="#CHACHA" class="xref">CHACHA</a>]
 <p id="section-4.2.3-6">The sn_key is computed as follows:<a href="#section-4.2.3-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.2.3-7">
 <pre>
-   [sender]_sn_key = HKDF-Expand-Label(Secret, "sn", "", key_length)
+   [sender]_sn_key  = HKDF-Expand-Label(Secret, "sn" , "", key_length)
 </pre><a href="#section-4.2.3-7" class="pilcrow">¶</a>
 </div>
-<p id="section-4.2.3-8">[sender] denotes the sending side. The per-epoch Secret value to be used is described
+<p id="section-4.2.3-8">[sender] denotes the sending side. The Secret value to be used is described
 in Section 7.3 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>. Note that a new key is used for each epoch:
 because the epoch is sent in the clear, this does not result in ambiguity.<a href="#section-4.2.3-8" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-9">The encrypted sequence number is computed by XORing the leading
-bytes of the mask with the on-the-wire representation of the
+bytes of the Mask with the on-the-wire representation of the
 sequence number. Decryption is accomplished by the same process.<a href="#section-4.2.3-9" class="pilcrow">¶</a></p>
-<p id="section-4.2.3-10">This procedure requires the ciphertext length to be at least 16 bytes. Receivers
+<p id="section-4.2.3-10">This procedure requires the ciphertext length be at least 16 bytes. Receivers
 MUST reject shorter records as if they had failed deprotection, as described in
 <a href="#handling-invalid-records" class="xref">Section 4.5.2</a>. Senders MUST pad short plaintexts out (using the
 conventional record padding mechanism) in order to make a suitable-length
-ciphertext. Note that most of the DTLS AEAD algorithms have a 16 byte authentication
-tag and need no padding. However, some algorithms, such as
-TLS_AES_128_CCM_8_SHA256, have a shorter authentication tag and may require padding
+ciphertext. Note most of the DTLS AEAD algorithms have a 16-byte authentication
+tag and need no padding. However, some algorithms such as
+TLS_AES_128_CCM_8_SHA256 have a shorter authentication tag and may require padding
 for short inputs.<a href="#section-4.2.3-10" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-11">Future cipher suites, which are not based on AES or ChaCha20, MUST define
 their own record sequence number encryption in order to be used with
 DTLS.<a href="#section-4.2.3-11" class="pilcrow">¶</a></p>
 <p id="section-4.2.3-12">Note that sequence number encryption is only applied to the DTLSCiphertext
-structure and not to the DTLSPlaintext structure, even though it also contains a
+structure and not to the DTLSPlaintext structure, which also contains a
 sequence number.<a href="#section-4.2.3-12" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1835,7 +1868,7 @@ sequence number.<a href="#section-4.2.3-12" class="pilcrow">¶</a></p>
 Each DTLS record MUST fit within a single datagram.  In order to
 avoid IP fragmentation, clients of the DTLS record layer SHOULD
 attempt to size records so that they fit within any Path MTU (PMTU) estimates
-obtained from the record layer. For more information about PMTU issues,
+obtained from the record layer. For more information about PMTU issues
 see <a href="#pmtu-issues" class="xref">Section 4.4</a>.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 <p id="section-4.3-2">Multiple DTLS records MAY be placed in a single datagram.  Records are encoded
 consecutively.  The length field from DTLS records containing that field can be
@@ -1843,7 +1876,7 @@ used to determine the boundaries between records.  The final record in a
 datagram can omit the length field.  The first byte of the datagram payload MUST
 be the beginning of a record.  Records MUST NOT span datagrams.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
 <p id="section-4.3-3">DTLS records without CIDs do not contain any association
-identifiers, and applications must arrange to multiplex between associations.
+identifiers and applications must arrange to multiplex between associations.
 With UDP, the host/port number is used to look up the appropriate security
 association for incoming records without CIDs.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
 <p id="section-4.3-4">Some transports, such as DCCP <span>[<a href="#RFC4340" class="xref">RFC4340</a>]</span>, provide their own sequence
@@ -1867,15 +1900,15 @@ defines a mapping of DTLS to DCCP that takes these issues into account.<a href="
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-pmtu-issues" class="section-name selfRef">PMTU Issues</a>
         </h3>
 <p id="section-4.4-1">In general, DTLS's philosophy is to leave PMTU discovery to the application.
-However, DTLS cannot completely ignore the PMTU for three reasons:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+However, DTLS cannot completely ignore PMTU for three reasons:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-2.1">The DTLS record framing expands the datagram size, thus lowering
 the effective PMTU from the application's perspective.<a href="#section-4.4-2.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-4.4-2.2">In some implementations, the application may not directly talk to
 the network, in which case the DTLS stack may absorb ICMP
-"Datagram Too Big" indications <span>[<a href="#RFC1191" class="xref">RFC1191</a>]</span> or ICMPv6
-"Packet Too Big" indications  <span>[<a href="#RFC4443" class="xref">RFC4443</a>]</span>.<a href="#section-4.4-2.2" class="pilcrow">¶</a>
+<span>[<a href="#RFC1191" class="xref">RFC1191</a>]</span> "Datagram Too Big" indications or ICMPv6 <span>[<a href="#RFC4443" class="xref">RFC4443</a>]</span>
+"Packet Too Big" indications.<a href="#section-4.4-2.2" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-4.4-2.3">The DTLS handshake messages can exceed the PMTU.<a href="#section-4.4-2.3" class="pilcrow">¶</a>
 </li>
@@ -1900,12 +1933,12 @@ maximum record size of 2^14 bytes.<a href="#section-4.4-5.3" class="pilcrow">¶<
         </ul>
 <p id="section-4.4-6">The DTLS record layer SHOULD also allow the upper layer protocol to
 discover the amount of record expansion expected by the DTLS
-processing; alternately, it MAY report PMTU estimates minus the
+processing; alternately it MAY report PMTU estimates minus the
 estimated expansion from the transport layer and DTLS record
 framing.<a href="#section-4.4-6" class="pilcrow">¶</a></p>
 <p id="section-4.4-7">Note that DTLS does not defend against spoofed ICMP messages;
 implementations SHOULD ignore any such messages that indicate
-PMTUs below the IPv4 and IPv6 minimums of 576 and 1280 bytes,
+PMTUs below the IPv4 and IPv6 minimums of 576 and 1280 bytes
 respectively.<a href="#section-4.4-7" class="pilcrow">¶</a></p>
 <p id="section-4.4-8">If there is a transport protocol indication that the PMTU was exceeded
 (either via ICMP or via a
@@ -1916,7 +1949,7 @@ performing PMTU discovery, whether via <span>[<a href="#RFC1191" class="xref">RF
 IPv4 or via <span>[<a href="#RFC8201" class="xref">RFC8201</a>]</span> for IPv6.  In particular:<a href="#section-4.4-9" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-10.1">Where allowed by the underlying transport protocol, the upper
-layer protocol SHOULD be allowed to set the state of the Don't Fragment (DF) bit
+layer protocol SHOULD be allowed to set the state of the DF bit
 (in IPv4) or prohibit local fragmentation (in IPv6).<a href="#section-4.4-10.1" class="pilcrow">¶</a>
 </li>
           <li class="normal" id="section-4.4-10.2">If the underlying transport protocol allows the application to
@@ -1969,7 +2002,7 @@ receiver MUST verify that the record contains a sequence number that
 does not duplicate the sequence number of any other record received
 in that epoch during the lifetime of the association.
 This check SHOULD happen after
-deprotecting the record; otherwise, the record discard might itself
+deprotecting the record; otherwise the record discard might itself
 serve as a timing channel for the record number. Note that computing
 the full record number from the partial is still a potential timing
 channel for the record number, though a less powerful one than whether
@@ -1990,8 +2023,8 @@ performing this check, based on the use of a bit mask, is described in
 Section 3.4.3 of <span>[<a href="#RFC4303" class="xref">RFC4303</a>]</span>. If the received record falls within the
 window and is new, or if the record is to the right of the window,
 then the record is new.<a href="#section-4.5.1-4" class="pilcrow">¶</a></p>
-<p id="section-4.5.1-5">The window MUST NOT be updated due to a received record until that
-record has been deprotected  successfully.<a href="#section-4.5.1-5" class="pilcrow">¶</a></p>
+<p id="section-4.5.1-5">The window MUST NOT be updated until the record has been deprotected
+successfully.<a href="#section-4.5.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="handling-invalid-records">
@@ -2003,12 +2036,12 @@ record has been deprotected  successfully.<a href="#section-4.5.1-5" class="pilc
 invalid formatting, length, MAC, etc.).  In general, invalid records
 SHOULD be silently discarded, thus preserving the association;
 however, an error MAY be logged for diagnostic purposes.
-Implementations which choose to generate an alert instead MUST
+Implementations which choose to generate an alert instead, MUST
 generate fatal alerts to avoid attacks where the attacker
 repeatedly probes the implementation to see how it responds to
 various types of error.  Note that if DTLS is run over UDP, then any
 implementation which does this will be extremely susceptible to
-DoS attacks because UDP forgery is so easy.
+denial-of-service (DoS) attacks because UDP forgery is so easy.
 Thus, generating fatal alerts is NOT RECOMMENDED for such transports, both
 to increase the reliability of DTLS service and to avoid the risk
 of spoofing attacks sending traffic to unrelated third parties.<a href="#section-4.5.2-1" class="pilcrow">¶</a></p>
@@ -2021,14 +2054,14 @@ the handshake state machine, they do not affect pending
 retransmission timers.<a href="#section-4.5.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="aead-lim">
+<div id="aead-limits">
 <section id="section-4.5.3">
           <h4 id="name-aead-limits">
 <a href="#section-4.5.3" class="section-number selfRef">4.5.3. </a><a href="#name-aead-limits" class="section-name selfRef">AEAD Limits</a>
           </h4>
-<p id="section-4.5.3-1">Section 5.5 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> defines limits on the number of records that can
+<p id="section-4.5.3-1">Section 5.5 of TLS <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> defines limits on the number of records that can
 be protected using the same keys. These limits are specific to an AEAD
-algorithm and apply equally to DTLS. Implementations SHOULD NOT protect more
+algorithm, and apply equally to DTLS. Implementations SHOULD NOT protect more
 records than allowed by the limit specified for the negotiated AEAD.
 Implementations SHOULD initiate a key update before reaching this limit.<a href="#section-4.5.3-1" class="pilcrow">¶</a></p>
 <p id="section-4.5.3-2"><span>[<a href="#TLS13" class="xref">TLS13</a>]</span> does not specify a limit for AEAD_AES_128_CCM, but the analysis in
@@ -2042,7 +2075,7 @@ after any record fails an authentication check. In comparison, DTLS ignores any
 packet that cannot be authenticated, allowing multiple forgery attempts.<a href="#section-4.5.3-3" class="pilcrow">¶</a></p>
 <p id="section-4.5.3-4">Implementations MUST count the number of received packets that fail
 authentication with each key. If the number of packets that fail authentication
-exceeds a limit that is specific to the AEAD in use, an implementation SHOULD
+exceed a limit that is specific to the AEAD in use, an implementation SHOULD
 immediately close the connection. Implementations SHOULD initiate a key update
 with update_requested before reaching this limit. Once a key update has been
 initiated, the previous keys can be dropped when the limit is reached rather
@@ -2051,7 +2084,7 @@ attacker is able to successfully forge a packet; see <span>[<a href="#AEBounds" 
 <span>[<a href="#ROBUST" class="xref">ROBUST</a>]</span>.<a href="#section-4.5.3-4" class="pilcrow">¶</a></p>
 <p id="section-4.5.3-5">For AEAD_AES_128_GCM, AEAD_AES_256_GCM, and AEAD_CHACHA20_POLY1305, the limit
 on the number of records that fail authentication is 2^36. Note that the
-analysis in <span>[<a href="#AEBounds" class="xref">AEBounds</a>]</span> supports a higher limit for AEAD_AES_128_GCM and
+analysis in <span>[<a href="#AEBounds" class="xref">AEBounds</a>]</span> supports a higher limit for the AEAD_AES_128_GCM and
 AEAD_AES_256_GCM, but this specification recommends a lower limit. For
 AEAD_AES_128_CCM, the limit on the number of records that fail authentication
 is 2^23.5; see <a href="#ccm-bounds" class="xref">Appendix B</a>.<a href="#section-4.5.3-5" class="pilcrow">¶</a></p>
@@ -2067,7 +2100,7 @@ the use of the associated AEAD function that preserves margins for both
 confidentiality and integrity. That is, limits MUST be specified for the number
 of packets that can be authenticated and for the number of packets that can fail
 authentication before a key update is required. Providing a reference to any analysis upon which values are
-based -- and any assumptions used in that analysis -- allows limits to be adapted
+based - and any assumptions used in that analysis - allows limits to be adapted
 to varying usage conditions.<a href="#section-4.5.3-7" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2080,10 +2113,10 @@ to varying usage conditions.<a href="#section-4.5.3-7" class="pilcrow">¶</a></p
       <h2 id="name-the-dtls-handshake-protocol">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-the-dtls-handshake-protocol" class="section-name selfRef">The DTLS Handshake Protocol</a>
       </h2>
-<p id="section-5-1">DTLS 1.3 reuses the TLS 1.3 handshake messages and flows, with
+<p id="section-5-1">DTLS 1.3 re-uses the TLS 1.3 handshake messages and flows, with
 the following changes:<a href="#section-5-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-5-2">
-<li id="section-5-2.1">To handle message loss, reordering, and fragmentation, modifications to
+<li id="section-5-2.1">To handle message loss, reordering, and fragmentation modifications to
 the handshake header are necessary.<a href="#section-5-2.1" class="pilcrow">¶</a>
 </li>
         <li id="section-5-2.2">Retransmission timers are introduced to handle message loss.<a href="#section-5-2.2" class="pilcrow">¶</a>
@@ -2091,12 +2124,13 @@ the handshake header are necessary.<a href="#section-5-2.1" class="pilcrow">¶</
         <li id="section-5-2.3">A new ACK content type has been added for reliable message delivery of handshake messages.<a href="#section-5-2.3" class="pilcrow">¶</a>
 </li>
       </ol>
-<p id="section-5-3">In addition, DTLS reuses TLS 1.3's "cookie" extension to provide a return-routability
-check as part of connection establishment. This is an important DoS
-prevention mechanism for UDP-based protocols, unlike TCP, which
-establishes return-routability as part of the connection establishment.<a href="#section-5-3" class="pilcrow">¶</a></p>
+<p id="section-5-3">Note that TLS 1.3 already supports a cookie extension, which is used to
+prevent denial-of-service attacks. This DoS prevention mechanism is
+described in more detail below since UDP-based protocols are more vulnerable
+to amplification attacks than a connection-oriented transport like TCP
+that performs return-routability checks as part of the connection establishment.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">DTLS implementations do not use the TLS 1.3 "compatibility mode" described in
-Appendix D.4 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>.  DTLS servers MUST NOT echo the
+Section D.4 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>.  DTLS servers MUST NOT echo the
 "legacy_session_id" value from the client and endpoints MUST NOT send ChangeCipherSpec
 messages.<a href="#section-5-4" class="pilcrow">¶</a></p>
 <p id="section-5-5">With these exceptions, the DTLS message formats, flows, and logic are
@@ -2118,7 +2152,7 @@ expensive cryptographic operations.<a href="#section-5.1-2.1" class="pilcrow">¶
 connection initiation messages with a forged source address that belongs to a
 victim.  The server then sends its response to the victim
 machine, thus flooding it. Depending on the selected
-parameters, this response message can be quite large, as
+parameters this response message can be quite large, as
 is the case for a Certificate message.<a href="#section-5.1-2.2" class="pilcrow">¶</a>
 </li>
         </ol>
@@ -2126,9 +2160,9 @@ is the case for a Certificate message.<a href="#section-5.1-2.2" class="pilcrow"
 cookie technique used by Photuris <span>[<a href="#RFC2522" class="xref">RFC2522</a>]</span> and IKE <span>[<a href="#RFC7296" class="xref">RFC7296</a>]</span>.  When
 the client sends its ClientHello message to the server, the server
 MAY respond with a HelloRetryRequest message. The HelloRetryRequest message,
-as well as the "cookie" extension, is defined in TLS 1.3.
+as well as the cookie extension, is defined in TLS 1.3.
 The HelloRetryRequest message contains a stateless cookie (see
-<span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, Section 4.2.2).
+<span>[<a href="#TLS13" class="xref">TLS13</a>]</span>; Section 4.2.2).
 The client MUST send a new ClientHello
 with the cookie added as an extension.  The server then verifies the cookie
 and proceeds with the handshake only if it is valid.  This mechanism forces
@@ -2136,14 +2170,14 @@ the attacker/client to be able to receive the cookie, which makes DoS attacks
 with spoofed IP addresses difficult.  This mechanism does not provide any defense
 against DoS attacks mounted from valid IP addresses.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
 <p id="section-5.1-4">The DTLS 1.3 specification changes how cookies are exchanged
-compared to DTLS 1.2. DTLS 1.3 reuses the HelloRetryRequest message
+compared to DTLS 1.2. DTLS 1.3 re-uses the HelloRetryRequest message
 and conveys the cookie to the client via an extension. The client
 receiving the cookie uses the same extension to place
 the cookie subsequently into a ClientHello message.
-DTLS 1.2, on the other hand, used a separate message, namely the HelloVerifyRequest,
+DTLS 1.2 on the other hand used a separate message, namely the HelloVerifyRequest,
 to pass a cookie to the client and did not utilize the extension mechanism.
 For backwards compatibility reasons, the cookie field in the ClientHello
-is present in DTLS 1.3 but is ignored by a DTLS 1.3-compliant server
+is present in DTLS 1.3 but is ignored by a DTLS 1.3 compliant server
 implementation.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 <p id="section-5.1-5">The exchange is shown in <a href="#dtls-cookie-exchange" class="xref">Figure 6</a>. Note that
 the figure focuses on the cookie exchange; all other extensions
@@ -2166,12 +2200,12 @@ are omitted.<a href="#section-5.1-5" class="pilcrow">¶</a></p>
 </pre>
 </div>
 <figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
-<a href="#name-dtls-exchange-with-helloret" class="selfRef">DTLS Exchange with HelloRetryRequest Containing the "cookie" Extension</a>
+<a href="#name-dtls-exchange-with-helloret" class="selfRef">DTLS exchange with HelloRetryRequest containing the "cookie" extension</a>
           </figcaption></figure>
 </div>
-<p id="section-5.1-7">The "cookie" extension is defined in Section 4.2.2 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>. When sending the
+<p id="section-5.1-7">The cookie extension is defined in Section 4.2.2 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>. When sending the
 initial ClientHello, the client does not have a cookie yet. In this case,
-the "cookie" extension is omitted and the legacy_cookie field in the ClientHello
+the cookie extension is omitted and the legacy_cookie field in the ClientHello
 message MUST be set to a zero-length vector (i.e., a zero-valued single byte length field).<a href="#section-5.1-7" class="pilcrow">¶</a></p>
 <p id="section-5.1-8">When responding to a HelloRetryRequest, the client MUST create a new
 ClientHello message following the description in Section 4.1.2 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>.<a href="#section-5.1-8" class="pilcrow">¶</a></p>
@@ -2180,7 +2214,7 @@ the HelloRetryRequest are included in the calculation of the
 transcript hash. The computation of the
 message hash for the HelloRetryRequest is done according to the description
 in Section 4.4.1 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>.<a href="#section-5.1-9" class="pilcrow">¶</a></p>
-<p id="section-5.1-10">The handshake transcript is not reset with the second ClientHello,
+<p id="section-5.1-10">The handshake transcript is not reset with the second ClientHello
 and a stateless server-cookie implementation requires the content or hash
 of the initial ClientHello (and HelloRetryRequest)
 to be stored in the cookie. The initial ClientHello is included in the
@@ -2205,15 +2239,14 @@ which it accepts both secrets.  <span>[<a href="#RFC7296" class="xref">RFC7296</
 identifier to cookies to detect this case. An alternative approach is
 simply to try verifying with both secrets. It is RECOMMENDED that
 servers implement a key rotation scheme that allows the server
-to manage keys with overlapping lifetimes.<a href="#section-5.1-12" class="pilcrow">¶</a></p>
+to manage keys with overlapping lifetime.<a href="#section-5.1-12" class="pilcrow">¶</a></p>
 <p id="section-5.1-13">Alternatively, the server can store timestamps in the cookie and
 reject cookies that were generated outside a certain
 interval of time.<a href="#section-5.1-13" class="pilcrow">¶</a></p>
 <p id="section-5.1-14">DTLS servers SHOULD perform a cookie exchange whenever a new
 handshake is being performed.  If the server is being operated in an
-environment where amplification is not a problem, e.g., where
-ICE <span>[<a href="#RFC8445" class="xref">RFC8445</a>]</span> has been used to establish bidirectional connectivity,
-the server MAY be configured not to perform a cookie exchange.  The default SHOULD be
+environment where amplification is not a problem, the server MAY be
+configured not to perform a cookie exchange.  The default SHOULD be
 that the exchange is performed, however.  In addition, the server MAY
 choose not to do a cookie exchange when a session is resumed or, more
 generically, when the DTLS handshake uses a PSK-based key exchange
@@ -2237,7 +2270,7 @@ abort the handshake with an "unexpected_message" alert in response
 to any second HelloRetryRequest which was sent in the same connection
 (i.e., where the ClientHello was itself in response to a HelloRetryRequest).<a href="#section-5.1-16" class="pilcrow">¶</a></p>
 <p id="section-5.1-17">DTLS clients which do not want to receive a Connection ID SHOULD
-still offer the "connection_id" extension <span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span> unless
+still offer the "connection_id" extension unless
 there is an application profile to the contrary. This permits
 a server which wants to receive a CID to negotiate one.<a href="#section-5.1-17" class="pilcrow">¶</a></p>
 </section>
@@ -2247,12 +2280,25 @@ a server which wants to receive a CID to negotiate one.<a href="#section-5.1-17"
         <h3 id="name-dtls-handshake-message-form">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-dtls-handshake-message-form" class="section-name selfRef">DTLS Handshake Message Format</a>
         </h3>
-<p id="section-5.2-1">DTLS uses the same Handshake messages as TLS 1.3. However,
-prior to transmission they are converted to DTLSHandshake
-messages, which contain extra data needed to support
-message loss, reordering, and message fragmentation.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">In order to support message loss, reordering, and message
+fragmentation, DTLS modifies the TLS 1.3 handshake header:<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2-2">
 <pre>
+    enum {
+        client_hello(1),
+        server_hello(2),
+        new_session_ticket(4),
+        end_of_early_data(5),
+        encrypted_extensions(8),
+        certificate(11),
+        certificate_request(13),
+        certificate_verify(15),
+        finished(20),
+        key_update(24),
+        message_hash(254),
+        (255)
+    } HandshakeType;
+
     struct {
         HandshakeType msg_type;    /* handshake type */
         uint24 length;             /* bytes in message */
@@ -2263,51 +2309,44 @@ message loss, reordering, and message fragmentation.<a href="#section-5.2-1" cla
             case client_hello:          ClientHello;
             case server_hello:          ServerHello;
             case end_of_early_data:     EndOfEarlyData;
-            case new_session_ticket:    NewSessionTicket;
             case encrypted_extensions:  EncryptedExtensions;
-            case request_connection_id: RequestedConnectionId;
-            case new_connection_id:     NewConnectionId;
-            case certificate:           Certificate;
             case certificate_request:   CertificateRequest;
+            case certificate:           Certificate;
             case certificate_verify:    CertificateVerify;
             case finished:              Finished;
+            case new_session_ticket:    NewSessionTicket;
             case key_update:            KeyUpdate;
         } body;
-    } DTLSHandshake;
+    } Handshake;
 </pre><a href="#section-5.2-2" class="pilcrow">¶</a>
 </div>
-<p id="section-5.2-3">In DTLS 1.3, the message transcript is computed over the original
-TLS 1.3-style Handshake messages without the message_seq,
-fragment_offset, and fragment_length values. Note that this is
-a change from DTLS 1.2 where those values were included
-in the transcript.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
-<p id="section-5.2-4">The first message each side transmits in each association always has
+<p id="section-5.2-3">The first message each side transmits in each association always has
 message_seq = 0.  Whenever a new message is generated, the
 message_seq value is incremented by one. When a message is
-retransmitted, the old message_seq value is reused, i.e., not
+retransmitted, the old message_seq value is re-used, i.e., not
 incremented. From the perspective of the DTLS record layer, the retransmission is
 a new record.  This record will have a new
-DTLSPlaintext.sequence_number value.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2-5">Note: In DTLS 1.2, the message_seq was reset to zero in case of a
+DTLSPlaintext.sequence_number value.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+<p id="section-5.2-4">Note: In DTLS 1.2 the message_seq was reset to zero in case of a
 rehandshake (i.e., renegotiation). On the surface, a rehandshake in DTLS 1.2
 shares similarities with a post-handshake message exchange in DTLS 1.3. However,
-in DTLS 1.3 the message_seq is not reset, to allow distinguishing a
+in DTLS 1.3 the message_seq is not reset to allow distinguishing a
 retransmission from a previously sent post-handshake message from a newly
-sent post-handshake message.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<p id="section-5.2-6">DTLS implementations maintain (at least notionally) a
+sent post-handshake message.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.2-5">DTLS implementations maintain (at least notionally) a
 next_receive_seq counter.  This counter is initially set to zero.
 When a handshake message is received, if its message_seq value matches
 next_receive_seq, next_receive_seq is incremented and the message is
 processed.  If the sequence number is less than next_receive_seq, the
 message MUST be discarded.  If the sequence number is greater than
 next_receive_seq, the implementation SHOULD queue the message but MAY
-discard it.  (This is a simple space/bandwidth trade-off).<a href="#section-5.2-6" class="pilcrow">¶</a></p>
-<p id="section-5.2-7">In addition to the handshake messages that are deprecated by the TLS 1.3
+discard it.  (This is a simple space/bandwidth tradeoff).<a href="#section-5.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.2-6">In addition to the handshake messages that are deprecated by the TLS 1.3
 specification, DTLS 1.3 furthermore deprecates the HelloVerifyRequest message
-originally defined in DTLS 1.0. DTLS 1.3-compliant implementations MUST NOT
+originally defined in DTLS 1.0. DTLS 1.3-compliant implements MUST NOT
 use the HelloVerifyRequest to execute a return-routability check. A
-dual-stack DTLS 1.2 / DTLS 1.3 client MUST, however, be prepared to
-interact with a DTLS 1.2 server.<a href="#section-5.2-7" class="pilcrow">¶</a></p>
+dual-stack DTLS 1.2/DTLS 1.3 client MUST, however, be prepared to
+interact with a DTLS 1.2 server.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="clienthello-message">
@@ -2316,7 +2355,7 @@ interact with a DTLS 1.2 server.<a href="#section-5.2-7" class="pilcrow">¶</a><
 <a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-clienthello-message" class="section-name selfRef">ClientHello Message</a>
         </h3>
 <p id="section-5.3-1">The format of the ClientHello used by a DTLS 1.3 client differs from the
-TLS 1.3 ClientHello format, as shown below.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+TLS 1.3 ClientHello format as shown below.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.3-2">
 <pre>
     uint16 ProtocolVersion;
@@ -2358,14 +2397,14 @@ random:  </dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.4">
             <p id="section-5.3-3.4.1">Same as for TLS 1.3, except that the downgrade sentinels described
 in Section 4.1.3 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> when TLS 1.2 and TLS 1.1 and below are negotiated
-apply to DTLS 1.2 and DTLS 1.0, respectively.<a href="#section-5.3-3.4.1" class="pilcrow">¶</a></p>
+apply to DTLS 1.2 and DTLS 1.0 respectively.<a href="#section-5.3-3.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
 <dt id="section-5.3-3.5">
 legacy_session_id:  </dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.6">
             <p id="section-5.3-3.6.1">Versions of TLS and DTLS before version 1.3 supported a "session resumption"
-feature, which has been merged with pre-shared keys (PSK) in version 1.3.  A client
+feature which has been merged with pre-shared keys in version 1.3.  A client
 which has a cached session ID set by a pre-DTLS 1.3 server SHOULD set this
 field to that value. Otherwise, it MUST be set as a zero-length vector
 (i.e., a zero-valued single byte length field).<a href="#section-5.3-3.6.1" class="pilcrow">¶</a></p>
@@ -2415,7 +2454,7 @@ is set to 0xfefd, indicating DTLS 1.2.<a href="#section-5.4-1" class="pilcrow">�
         <h3 id="name-handshake-message-fragmenta">
 <a href="#section-5.5" class="section-number selfRef">5.5. </a><a href="#name-handshake-message-fragmenta" class="section-name selfRef">Handshake Message Fragmentation and Reassembly</a>
         </h3>
-<p id="section-5.5-1">As described in <a href="#transport-layer-mapping" class="xref">Section 4.3</a>, one or more handshake
+<p id="section-5.5-1">As described in <a href="#transport-layer-mapping" class="xref">Section 4.3</a> one or more handshake
 messages may be carried in a single datagram. However, handshake messages are
 potentially bigger than the size allowed by the underlying datagram transport.
 DTLS provides a mechanism for fragmenting a handshake message over a
@@ -2423,8 +2462,8 @@ number of records, each of which can be transmitted in separate datagrams, thus
 avoiding IP fragmentation.<a href="#section-5.5-1" class="pilcrow">¶</a></p>
 <p id="section-5.5-2">When transmitting the handshake message, the sender divides the
 message into a series of N contiguous data ranges. The ranges MUST NOT
-overlap.  The sender then creates N DTLSHandshake messages, all with the
-same message_seq value associated with the original handshake message.  Each new
+overlap.  The sender then creates N handshake messages, all with the
+same message_seq value as the original handshake message.  Each new
 message is labeled with the fragment_offset (the number of bytes
 contained in previous fragments) and the fragment_length (the length
 of this fragment).  The length field in all messages is the same as
@@ -2434,33 +2473,28 @@ Each handshake message fragment that is placed into a record
 MUST be delivered in a single UDP datagram.<a href="#section-5.5-2" class="pilcrow">¶</a></p>
 <p id="section-5.5-3">When a DTLS implementation receives a handshake message fragment corresponding
 to the next expected handshake message sequence number, it
-MUST process it, either by buffering it until it has the entire handshake message
-or by processing any in-order portions of the message.
-The transcript consists of complete TLS Handshake messages (reassembled
-as necessary). Note that this requires removing the message_seq,
-fragment_offset, and fragment_length fields to create the Handshake
-structure.<a href="#section-5.5-3" class="pilcrow">¶</a></p>
-<p id="section-5.5-4">DTLS implementations MUST be able to handle overlapping fragment ranges.
+MUST buffer it until it has the entire handshake message. DTLS
+implementations MUST be able to handle overlapping fragment ranges.
 This allows senders to retransmit handshake messages with smaller
 fragment sizes if the PMTU estimate changes. Senders MUST NOT change
 handshake message bytes upon retransmission. Receivers MAY check
 that retransmitted bytes are identical and SHOULD abort the handshake
-with an "illegal_parameter" alert if the value of a byte changes.<a href="#section-5.5-4" class="pilcrow">¶</a></p>
-<p id="section-5.5-5">Note that as with TLS, multiple handshake messages may be placed in
+with an "illegal_parameter" alert if the value of a byte changes.<a href="#section-5.5-3" class="pilcrow">¶</a></p>
+<p id="section-5.5-4">Note that as with TLS, multiple handshake messages may be placed in
 the same DTLS record, provided that there is room and that they are
 part of the same flight.  Thus, there are two acceptable ways to pack
 two DTLS handshake messages into the same datagram: in the same record or in
-separate records.<a href="#section-5.5-5" class="pilcrow">¶</a></p>
+separate records.<a href="#section-5.5-4" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="endofearlydata-message">
+<div id="end-of-early-data">
 <section id="section-5.6">
-        <h3 id="name-endofearlydata-message">
-<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-endofearlydata-message" class="section-name selfRef">EndOfEarlyData Message</a>
+        <h3 id="name-end-of-early-data">
+<a href="#section-5.6" class="section-number selfRef">5.6. </a><a href="#name-end-of-early-data" class="section-name selfRef">End Of Early Data</a>
         </h3>
 <p id="section-5.6-1">The DTLS 1.3 handshake has one important difference from the
 TLS 1.3 handshake: the EndOfEarlyData message is omitted both
-from the wire and the handshake transcript. Because DTLS
+from the wire and the handshake transcript: because DTLS
 records have epochs, EndOfEarlyData is not necessary to determine
 when the early data is complete, and because DTLS is lossy,
 attackers can trivially mount the deletion attacks that EndOfEarlyData
@@ -2480,7 +2514,7 @@ other peer. <a href="#tab-flights" class="xref">Table 1</a> contains a complete 
 <table class="center" id="table-1">
           <caption>
 <a href="#table-1" class="selfRef">Table 1</a>:
-<a href="#name-flight-handshake-message-co" class="selfRef">Flight Handshake Message Combinations</a>
+<a href="#name-flight-handshake-message-co" class="selfRef">Flight Handshake Message Combinations.</a>
           </caption>
 <thead>
             <tr>
@@ -2529,12 +2563,12 @@ other peer. <a href="#tab-flights" class="xref">Table 1</a> contains a complete 
 <li class="normal" id="section-5.7-4.1">
             <a href="#tab-flights" class="xref">Table 1</a> does not highlight any of the optional messages.<a href="#section-5.7-4.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-5.7-4.2">Regarding note (1): When a handshake flight is sent without any expected response, as is the case with
+          <li class="normal" id="section-5.7-4.2">Regarding note (1): When a handshake flight is sent without any expected response, as it is the case with
  the client's final flight or with the NewSessionTicket message, the flight must be
  acknowledged with an ACK message.<a href="#section-5.7-4.2" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-5.7-5">Below are several example message exchanges illustrating the flight concept.
+<p id="section-5.7-5">Below are several example message exchange illustrating the flight concept.
 The notational conventions from <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> are used.<a href="#section-5.7-5" class="pilcrow">¶</a></p>
 <span id="name-message-flights-for-a-full-"></span><div id="dtls-full">
 <figure id="figure-7">
@@ -2580,7 +2614,7 @@ ClientHello                                                 | Flight |
 </pre>
 </div>
 <figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
-<a href="#name-message-flights-for-a-full-" class="selfRef">Message Flights for a Full DTLS Handshake (with Cookie Exchange)</a>
+<a href="#name-message-flights-for-a-full-" class="selfRef">Message flights for a full DTLS Handshake (with cookie exchange)</a>
           </figcaption></figure>
 </div>
 <span id="name-message-flights-for-resumpt"></span><div id="dtls-psk">
@@ -2611,7 +2645,7 @@ ClientHello                                                 | Flight |
 </pre>
 </div>
 <figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
-<a href="#name-message-flights-for-resumpt" class="selfRef">Message Flights for Resumption and PSK Handshake (without Cookie Exchange)</a>
+<a href="#name-message-flights-for-resumpt" class="selfRef">Message flights for resumption and PSK handshake (without cookie exchange)</a>
           </figcaption></figure>
 </div>
 <span id="name-message-flights-for-the-zer"></span><div id="dtls-zero-rtt">
@@ -2647,7 +2681,7 @@ Client                                            Server
 </pre>
 </div>
 <figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
-<a href="#name-message-flights-for-the-zer" class="selfRef">Message Flights for the Zero-RTT Handshake</a>
+<a href="#name-message-flights-for-the-zer" class="selfRef">Message flights for the Zero-RTT handshake</a>
           </figcaption></figure>
 </div>
 <span id="name-message-flights-for-the-new"></span><div id="dtls-post-handshake-ticket">
@@ -2666,10 +2700,10 @@ Client                                            Server
 </pre>
 </div>
 <figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
-<a href="#name-message-flights-for-the-new" class="selfRef">Message Flights for the NewSessionTicket Message</a>
+<a href="#name-message-flights-for-the-new" class="selfRef">Message flights for the NewSessionTicket message</a>
           </figcaption></figure>
 </div>
-<p id="section-5.7-10">KeyUpdate, NewConnectionId, and RequestConnectionId follow a similar
+<p id="section-5.7-10">KeyUpdate, NewConnectionId and RequestConnectionId follow a similar
 pattern to NewSessionTicket: a single message sent by one side
 followed by an ACK by the other.<a href="#section-5.7-10" class="pilcrow">¶</a></p>
 </section>
@@ -2740,7 +2774,7 @@ state machine shown in <a href="#dtls-timeout-state-machine" class="xref">Figure
 </pre>
 </div>
 <figcaption><a href="#figure-11" class="selfRef">Figure 11</a>:
-<a href="#name-dtls-timeout-and-retransmis" class="selfRef">DTLS Timeout and Retransmission State Machine</a>
+<a href="#name-dtls-timeout-and-retransmis" class="selfRef">DTLS timeout and retransmission state machine</a>
             </figcaption></figure>
 </div>
 <p id="section-5.8.1-3">The state machine has four basic states: PREPARING, SENDING, WAITING,
@@ -2752,7 +2786,7 @@ buffer first) and enters the SENDING state.<a href="#section-5.8.1-4" class="pil
 <p id="section-5.8.1-5">In the SENDING state, the implementation transmits the buffered
 flight of messages. If the implementation has received one or more
 ACKs (see <a href="#ack-msg" class="xref">Section 7</a>) from the peer, then it SHOULD omit any messages or
-message fragments which have already been acknowledged. Once the messages
+message fragments which have already been ACKed. Once the messages
 have been sent, the implementation then sets a retransmit timer
 and enters the WAITING state.<a href="#section-5.8.1-5" class="pilcrow">¶</a></p>
 <p id="section-5.8.1-6">There are four ways to exit the WAITING state:<a href="#section-5.8.1-6" class="pilcrow">¶</a></p>
@@ -2764,16 +2798,14 @@ retransmit timer (see <a href="#timer-values" class="xref">Section 5.8.2</a>), a
             <li id="section-5.8.1-7.2">The implementation reads an ACK from the peer: upon receiving
 an ACK for a partial flight (as mentioned in <a href="#sending-acks" class="xref">Section 7.1</a>),
 the implementation transitions
-to the SENDING state, where it retransmits the unacknowledged portion
+to the SENDING state, where it retransmits the unacked portion
 of the flight, adjusts and re-arms the retransmit timer, and returns to the
 WAITING state. Upon receiving an ACK for a complete flight,
 the implementation cancels all retransmissions and either
 remains in WAITING, or, if the ACK was for the final flight,
 transitions to FINISHED.<a href="#section-5.8.1-7.2" class="pilcrow">¶</a>
 </li>
-            <li id="section-5.8.1-7.3">The implementation reads a retransmitted flight from the peer when
-none of the messages that it sent in response to that flight
-have been acknowledged: the
+            <li id="section-5.8.1-7.3">The implementation reads a retransmitted flight from the peer: the
 implementation transitions to the SENDING state, where it
 retransmits the flight, adjusts and re-arms the retransmit timer, and returns
 to the WAITING state.  The rationale here is that the receipt of a
@@ -2814,13 +2846,13 @@ flight immediately, shortcutting the retransmission timer.<a href="#section-5.8.
           </h4>
 <p id="section-5.8.2-1">The configuration of timer settings varies with implementations, and certain
 deployment environments require timer value adjustments. Mishandling
-of the timer can lead to serious congestion problems -- for example, if
+of the timer can lead to serious congestion problems, for example if
 many instances of a DTLS time out early and retransmit too quickly on
 a congested link.<a href="#section-5.8.2-1" class="pilcrow">¶</a></p>
 <p id="section-5.8.2-2">Unless implementations have deployment-specific and/or external information about the round trip time,
 implementations SHOULD use an initial timer value of 1000 ms and double
 the value at each retransmission, up to no less than 60 seconds (the
-maximum as specified in RFC 6298 <span>[<a href="#RFC6298" class="xref">RFC6298</a>]</span>). Application-specific profiles MAY
+RFC 6298 <span>[<a href="#RFC6298" class="xref">RFC6298</a>]</span> maximum). Application specific profiles MAY
 recommend shorter or longer timer values. For instance:<a href="#section-5.8.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5.8.2-3.1">Profiles for specific deployment environments, such as in low-power,
@@ -2830,12 +2862,12 @@ more information about one such DTLS 1.3 IoT profile.<a href="#section-5.8.2-3.1
 </li>
             <li class="normal" id="section-5.8.2-3.2">Real-time protocols MAY specify shorter timeouts. It is RECOMMENDED
 that for DTLS-SRTP <span>[<a href="#RFC5764" class="xref">RFC5764</a>]</span>, a default timeout of
-400 ms be used; because customer experience degrades with one-way latencies
-of greater than 200 ms, real-time deployments are less likely
+400ms be used; because customer experience degrades with one-way latencies
+of greater than 200ms, real-time deployments are less likely
 to have long latencies.<a href="#section-5.8.2-3.2" class="pilcrow">¶</a>
 </li>
           </ul>
-<p id="section-5.8.2-4">In settings where there is external information (for instance, from an ICE <span>[<a href="#RFC8445" class="xref">RFC8445</a>]</span>
+<p id="section-5.8.2-4">In settings where there is external information (for instance from an ICE <span>[<a href="#RFC8445" class="xref">RFC8445</a>]</span>
 handshake, or from previous connections to the same server)
 about the RTT, implementations SHOULD use 1.5 times that RTT estimate
 as the retransmit timer.<a href="#section-5.8.2-4" class="pilcrow">¶</a></p>
@@ -2859,15 +2891,15 @@ serious congestion problems in practice.<a href="#section-5.8.2-6" class="pilcro
 <a href="#section-5.8.3" class="section-number selfRef">5.8.3. </a><a href="#name-large-flight-sizes" class="section-name selfRef">Large Flight Sizes</a>
           </h4>
 <p id="section-5.8.3-1">DTLS does not have any built-in congestion control or rate control;
-in general, this is not an issue because messages tend to be small.
+in general this is not an issue because messages tend to be small.
 However, in principle, some messages -- especially Certificate -- can
 be quite large. If all the messages in a large flight are sent
 at once, this can result in network congestion. A better strategy
 is to send out only part of the flight, sending more when
 messages are acknowledged. Several extensions have been standardized
-to reduce the size of the Certificate message -- for example,
-the "cached_info" extension <span>[<a href="#RFC7924" class="xref">RFC7924</a>]</span>; certificate
-compression <span>[<a href="#RFC8879" class="xref">RFC8879</a>]</span>; and <span>[<a href="#RFC6066" class="xref">RFC6066</a>]</span>, which defines the "client_certificate_url"
+to reduce the size of the certificate message, for example
+the cached information extension <span>[<a href="#RFC7924" class="xref">RFC7924</a>]</span>, certificate
+compression <span>[<a href="#RFC8879" class="xref">RFC8879</a>]</span> and <span>[<a href="#RFC6066" class="xref">RFC6066</a>]</span>, which defines the "client_certificate_url"
 extension allowing DTLS clients to send a sequence of Uniform
 Resource Locators (URLs) instead of the client certificate.<a href="#section-5.8.3-1" class="pilcrow">¶</a></p>
 <p id="section-5.8.3-2">DTLS stacks SHOULD NOT send more than 10 records in a single transmission.<a href="#section-5.8.3-2" class="pilcrow">¶</a></p>
@@ -2876,7 +2908,7 @@ Resource Locators (URLs) instead of the client certificate.<a href="#section-5.8
 <div id="state-machine-duplication">
 <section id="section-5.8.4">
           <h4 id="name-state-machine-duplication-f">
-<a href="#section-5.8.4" class="section-number selfRef">5.8.4. </a><a href="#name-state-machine-duplication-f" class="section-name selfRef">State Machine Duplication for Post-Handshake Messages</a>
+<a href="#section-5.8.4" class="section-number selfRef">5.8.4. </a><a href="#name-state-machine-duplication-f" class="section-name selfRef">State machine duplication for post-handshake messages</a>
           </h4>
 <p id="section-5.8.4-1">DTLS 1.3 makes use of the following categories of post-handshake messages:<a href="#section-5.8.4-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-5.8.4-2">
@@ -2892,16 +2924,16 @@ Resource Locators (URLs) instead of the client certificate.<a href="#section-5.8
 </li>
           </ol>
 <p id="section-5.8.4-3">Messages of each category can be sent independently, and reliability is established
-via independent state machines, each of which behaves as described in <a href="#state-machine" class="xref">Section 5.8.1</a>.
+via independent state machines each of which behaves as described in <a href="#state-machine" class="xref">Section 5.8.1</a>.
 For example, if a server sends a NewSessionTicket and a CertificateRequest message,
 two independent state machines will be created.<a href="#section-5.8.4-3" class="pilcrow">¶</a></p>
-<p id="section-5.8.4-4">Sending multiple instances of messages of
+<p id="section-5.8.4-4">As explained in the corresponding sections, sending multiple instances of messages of
 a given category without having completed earlier transmissions is allowed for some
 categories, but not for others. Specifically, a server MAY send multiple NewSessionTicket
-messages at once without awaiting ACKs for earlier NewSessionTicket messages first. Likewise, a
+messages at once without awaiting ACKs for earlier NewSessionTicket first. Likewise, a
 server MAY send multiple CertificateRequest messages at once without having completed
 earlier client authentication requests before. In contrast, implementations MUST NOT
-send KeyUpdate, NewConnectionId, or RequestConnectionId messages if an earlier message
+send KeyUpdate, NewConnectionId or RequestConnectionId messages if an earlier message
 of the same type has not yet been acknowledged.<a href="#section-5.8.4-4" class="pilcrow">¶</a></p>
 <p id="section-5.8.4-5">Note: Except for post-handshake client authentication, which involves handshake messages
 in both directions, post-handshake messages are single-flight, and their respective state
@@ -2921,41 +2953,55 @@ message type.<a href="#section-5.8.4-6" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
-<div id="cryptographic-label-prefix">
+<div id="certificateverify-and-finished-messages">
 <section id="section-5.9">
-        <h3 id="name-cryptographic-label-prefix">
-<a href="#section-5.9" class="section-number selfRef">5.9. </a><a href="#name-cryptographic-label-prefix" class="section-name selfRef">Cryptographic Label Prefix</a>
+        <h3 id="name-certificateverify-and-finis">
+<a href="#section-5.9" class="section-number selfRef">5.9. </a><a href="#name-certificateverify-and-finis" class="section-name selfRef">CertificateVerify and Finished Messages</a>
         </h3>
-<p id="section-5.9-1">Section 7.1 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> specifies that HKDF-Expand-Label uses
+<p id="section-5.9-1">CertificateVerify and Finished messages have the same format as in
+TLS 1.3.  Hash calculations include entire handshake messages, including
+DTLS-specific fields: message_seq, fragment_offset, and
+fragment_length.  However, in order to remove sensitivity to
+handshake message fragmentation, the CertificateVerify and the Finished messages MUST be computed as
+if each handshake message had been sent as a single fragment following
+the algorithm described in Section 4.4.3 and Section 4.4.4 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, respectively.<a href="#section-5.9-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="cryptographic-label-prefix">
+<section id="section-5.10">
+        <h3 id="name-cryptographic-label-prefix">
+<a href="#section-5.10" class="section-number selfRef">5.10. </a><a href="#name-cryptographic-label-prefix" class="section-name selfRef">Cryptographic Label Prefix</a>
+        </h3>
+<p id="section-5.10-1">Section 7.1 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> specifies that HKDF-Expand-Label uses
 a label prefix of "tls13 ". For DTLS 1.3, that label SHALL be
 "dtls13".  This ensures key separation between DTLS 1.3 and
 TLS 1.3. Note that there is no trailing space; this is necessary
 in order to keep the overall label size inside of one hash
-iteration because "DTLS" is one letter longer than "TLS".<a href="#section-5.9-1" class="pilcrow">¶</a></p>
+iteration because "DTLS" is one letter longer than "TLS".<a href="#section-5.10-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="alert-messages">
-<section id="section-5.10">
+<section id="section-5.11">
         <h3 id="name-alert-messages">
-<a href="#section-5.10" class="section-number selfRef">5.10. </a><a href="#name-alert-messages" class="section-name selfRef">Alert Messages</a>
+<a href="#section-5.11" class="section-number selfRef">5.11. </a><a href="#name-alert-messages" class="section-name selfRef">Alert Messages</a>
         </h3>
-<p id="section-5.10-1">Note that alert messages are not retransmitted at all, even when they
+<p id="section-5.11-1">Note that Alert messages are not retransmitted at all, even when they
 occur in the context of a handshake.  However, a DTLS implementation
 which would ordinarily issue an alert SHOULD generate a new alert
 message if the offending record is received again (e.g., as a
 retransmitted handshake message).  Implementations SHOULD detect when
 a peer is persistently sending bad messages and terminate the local
 connection state after such misbehavior is detected. Note that alerts
-are not reliably transmitted; implementations SHOULD NOT depend on
-receiving alerts in order to signal errors or connection closure.<a href="#section-5.10-1" class="pilcrow">¶</a></p>
+are not reliably transmitted; implementation SHOULD NOT depend on
+receiving alerts in order to signal errors or connection closure.<a href="#section-5.11-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="establishing-new-associations-with-existing-parameters">
-<section id="section-5.11">
+<section id="section-5.12">
         <h3 id="name-establishing-new-associatio">
-<a href="#section-5.11" class="section-number selfRef">5.11. </a><a href="#name-establishing-new-associatio" class="section-name selfRef">Establishing New Associations with Existing Parameters</a>
+<a href="#section-5.12" class="section-number selfRef">5.12. </a><a href="#name-establishing-new-associatio" class="section-name selfRef">Establishing New Associations with Existing Parameters</a>
         </h3>
-<p id="section-5.11-1">If a DTLS client-server pair is configured in such a way that
+<p id="section-5.12-1">If a DTLS client-server pair is configured in such a way that
 repeated connections happen on the same host/port quartet, then it is
 possible that a client will silently abandon one connection and then
 initiate another with the same parameters (e.g., after a reboot).
@@ -2970,14 +3016,14 @@ Finished message is received, the server MUST abandon the previous
 association to avoid confusion between two valid associations with
 overlapping epochs.  The reachability requirement prevents
 off-path/blind attackers from destroying associations merely by
-sending forged ClientHellos.<a href="#section-5.11-1" class="pilcrow">¶</a></p>
-<p id="section-5.11-2">Note: It is not always possible to distinguish which association
+sending forged ClientHellos.<a href="#section-5.12-1" class="pilcrow">¶</a></p>
+<p id="section-5.12-2">Note: it is not always possible to distinguish which association
 a given record is from. For instance, if the client performs
 a handshake, abandons the connection, and then immediately starts
 a new handshake, it may not be possible to tell which connection
 a given protected record is for. In these cases, trial decryption
 may be necessary, though implementations could use CIDs to avoid
-the 5-tuple-based ambiguity.<a href="#section-5.11-2" class="pilcrow">¶</a></p>
+the 5-tuple-based ambiguity.<a href="#section-5.12-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2993,8 +3039,8 @@ because it can only acknowledge Record 2 sent by the server once it has
 processed messages in Record 0 needed to establish epoch 2 keys, which
 are needed to encrypt or decrypt messages found in Record 2.  <a href="#ack-msg" class="xref">Section 7</a>
 provides the necessary background details for this interaction.
-Note: For simplicity, we are not resetting record numbers in this
-diagram, so "Record 1" is really "Epoch 2, Record 0", etc.<a href="#section-6-1" class="pilcrow">¶</a></p>
+Note: for simplicity we are not re-setting record numbers in this
+diagram, so "Record 1" is really "Epoch 2, Record 0, etc.".<a href="#section-6-1" class="pilcrow">¶</a></p>
 <span id="name-example-dtls-exchange-illus"></span><div id="dtls-msg-loss">
 <figure id="figure-12">
         <div class="alignLeft art-text artwork" id="section-6-2.1">
@@ -3054,7 +3100,7 @@ Client                                                Server
 </pre>
 </div>
 <figcaption><a href="#figure-12" class="selfRef">Figure 12</a>:
-<a href="#name-example-dtls-exchange-illus" class="selfRef">Example DTLS Exchange Illustrating Message Loss</a>
+<a href="#name-example-dtls-exchange-illus" class="selfRef">Example DTLS exchange illustrating message loss</a>
         </figcaption></figure>
 </div>
 <div id="dtls-epoch">
@@ -3064,40 +3110,40 @@ Client                                                Server
         </h3>
 <p id="section-6.1-1">A recipient of a DTLS message needs to select the correct keying material
 in order to process an incoming message. With the possibility of message
- loss and reordering, an identifier is needed to determine which cipher state
+ loss and re-ordering, an identifier is needed to determine which cipher state
 has been used to protect the record payload. The epoch value fulfills this
-role in DTLS. In addition to the TLS 1.3-defined key derivation steps (see
-Section 7 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>), a sender may want to rekey at any time during
+role in DTLS. In addition to the TLS 1.3-defined key derivation steps, see
+Section 7 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, a sender may want to rekey at any time during
 the lifetime of the connection. It therefore needs to indicate that it is
 updating its sending cryptographic keys.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">This version of DTLS assigns dedicated epoch values to messages in the
 protocol exchange to allow identification of the correct cipher state:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-3.1">Epoch value (0) is used with unencrypted messages. There are
+<li class="normal" id="section-6.1-3.1">epoch value (0) is used with unencrypted messages. There are
 three unencrypted messages in DTLS, namely ClientHello, ServerHello,
 and HelloRetryRequest.<a href="#section-6.1-3.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-3.2">Epoch value (1) is used for messages protected using keys derived
-from client_early_traffic_secret. Note that this epoch is skipped if
+          <li class="normal" id="section-6.1-3.2">epoch value (1) is used for messages protected using keys derived
+from client_early_traffic_secret. Note this epoch is skipped if
 the client does not offer early data.<a href="#section-6.1-3.2" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-3.3">Epoch value (2) is used for messages protected using keys derived
+          <li class="normal" id="section-6.1-3.3">epoch value (2) is used for messages protected using keys derived
 from [sender]_handshake_traffic_secret. Messages transmitted during
 the initial handshake, such as EncryptedExtensions,
-CertificateRequest, Certificate, CertificateVerify, and Finished,
-belong to this category. Note, however, that post-handshake messages are
+CertificateRequest, Certificate, CertificateVerify, and Finished
+belong to this category. Note, however, post-handshake are
 protected under the appropriate application traffic key and are not included in this category.<a href="#section-6.1-3.3" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-3.4">Epoch value (3) is used for payloads protected using keys derived
+          <li class="normal" id="section-6.1-3.4">epoch value (3) is used for payloads protected using keys derived
 from the initial [sender]_application_traffic_secret_0. This may include
 handshake messages, such as post-handshake messages (e.g., a
 NewSessionTicket message).<a href="#section-6.1-3.4" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-6.1-3.5">Epoch values (4 to 2^16-1) are used for payloads protected using keys from
+          <li class="normal" id="section-6.1-3.5">epoch value (4 to 2^64-1) is used for payloads protected using keys from
 the [sender]_application_traffic_secret_N (N&gt;0).<a href="#section-6.1-3.5" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-6.1-4">Using these reserved epoch values, a receiver knows what cipher state
+<p id="section-6.1-4">Using these reserved epoch values a receiver knows what cipher state
 has been used to encrypt and integrity protect a
 message. Implementations that receive a record with an epoch value
 for which no corresponding cipher state can be determined SHOULD
@@ -3171,7 +3217,7 @@ Client                                             Server
 </pre>
 </div>
 <figcaption><a href="#figure-13" class="selfRef">Figure 13</a>:
-<a href="#name-example-dtls-exchange-with-" class="selfRef">Example DTLS Exchange with Epoch Information</a>
+<a href="#name-example-dtls-exchange-with-" class="selfRef">Example DTLS exchange with epoch information</a>
           </figcaption></figure>
 </div>
 </section>
@@ -3186,7 +3232,7 @@ Client                                             Server
 <p id="section-7-1">The ACK message is used by an endpoint to indicate which handshake records
 it has received and processed from the other side. ACK is not
 a handshake message but is rather a separate content type,
-with code point 26. This avoids having ACK being added
+with code point TBD (proposed, 25). This avoids having ACK being added
 to the handshake transcript. Note that ACKs can still be
 sent in the same UDP datagram as handshake records.<a href="#section-7-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-7-2">
@@ -3200,7 +3246,7 @@ sent in the same UDP datagram as handshake records.<a href="#section-7-1" class=
         <dt id="section-7-3.1">
 record_numbers:  </dt>
         <dd style="margin-left: 1.5em" id="section-7-3.2">
-          <p id="section-7-3.2.1">A list of the records containing handshake messages in the current
+          <p id="section-7-3.2.1">a list of the records containing handshake messages in the current
 flight which the endpoint has received and either processed or buffered,
 in numerically increasing
 order.<a href="#section-7-3.2.1" class="pilcrow">¶</a></p>
@@ -3214,21 +3260,21 @@ As an example, implementations MUST NOT send ACKs for
 handshake messages which they discard because they are
 not the next expected message.<a href="#section-7-4" class="pilcrow">¶</a></p>
 <p id="section-7-5">During the handshake, ACKs only cover the current outstanding flight (this is
-possible because DTLS is generally a lock-step protocol). In particular,
+possible because DTLS is generally a lockstep protocol). In particular,
 receiving a message from a handshake flight implicitly acknowledges all
 messages from the previous flight(s).  Accordingly, an ACK
 from the server would not cover both the ClientHello and the client's
-Certificate message, because the ClientHello and client Certificate are in different
+Certificate, because the ClientHello and client Certificate are in different
 flights. Implementations can accomplish this by clearing their ACK
 list upon receiving the start of the next flight.<a href="#section-7-5" class="pilcrow">¶</a></p>
-<p id="section-7-6">For post-handshake messages, ACKs SHOULD be sent once for each received
+<p id="section-7-6">After the handshake, ACKs SHOULD be sent once for each received
 and processed handshake record (potentially subject to some delay) and MAY
 cover more than one flight. This includes records containing messages which are
 discarded because a previous copy has been received.<a href="#section-7-6" class="pilcrow">¶</a></p>
-<p id="section-7-7">During the handshake, ACK records MUST be sent with an epoch which is
+<p id="section-7-7">During the handshake, ACK records MUST be sent with an epoch that is
 equal to or higher than the record which is being acknowledged.
 Note that some care is required when processing flights spanning
-multiple epochs. For instance, if the client receives only the ServerHello
+multiple epochs. For instance, if the client receives only the Server Hello
 and Certificate and wishes to ACK them in a single record,
 it must do so in epoch 2, as it is required to use an epoch
 greater than or equal to 2 and cannot yet send with any greater
@@ -3257,11 +3303,11 @@ receive the rest of the flight (which may be in the same UDP
 datagram). "Immediately" is hard to define. One approach is to
 set a timer for 1/4 the current retransmit timer value when
 the first record in the flight is received and then send an
-ACK when that timer expires. Note: The 1/4 value here is somewhat
+ACK when that timer expires. Note: the 1/4 value here is somewhat
 arbitrary. Given that the round trip estimates in the DTLS
 handshake are generally very rough (or the default), any
 value will be an approximation, and there is an inherent
-compromise due to competition between retransmission due to over-aggressive ACKing
+compromise due to competition between retransmision due to over-agressive ACKing
 and over-aggressive timeout-based retransmission.
 As a comparison point,
 QUIC's loss-based recovery algorithms
@@ -3270,8 +3316,8 @@ work out to a delay of about 1/3 of the retransmit timer.<a href="#section-7.1-2
 </li>
         </ul>
 <p id="section-7.1-3">In general, flights MUST be ACKed unless they are implicitly
-acknowledged. In the present specification, the following flights are implicitly acknowledged
-by the receipt of the next flight, which generally immediately follows the flight:<a href="#section-7.1-3" class="pilcrow">¶</a></p>
+acknowledged. In the present specification the following flights are implicitly acknowledged
+by the receipt of the next flight, which generally immediately follows the flight,<a href="#section-7.1-3" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-7.1-4">
 <li id="section-7.1-4.1">Handshake flights other than the client's final flight of the
 main handshake.<a href="#section-7.1-4.1" class="pilcrow">¶</a>
@@ -3281,15 +3327,13 @@ main handshake.<a href="#section-7.1-4.1" class="pilcrow">¶</a>
         </ol>
 <p id="section-7.1-5">ACKs SHOULD NOT be sent for these flights unless
 the responding flight cannot be generated immediately.
-All other flights MUST be ACKed.
 In this case,
 implementations MAY send explicit ACKs for the complete received
 flight even though it will eventually also be implicitly acknowledged
-through the responding flight.
-A notable example for this is
+through the responding flight. A notable example for this is
 the case of client authentication in constrained
 environments, where generating the CertificateVerify message can
-take considerable time on the client. 
+take considerable time on the client. All other flights MUST be ACKed.
 Implementations MAY acknowledge the records corresponding to each transmission of
 each flight or simply acknowledge the most recent one. In general,
 implementations SHOULD ACK as many received packets as can fit
@@ -3300,11 +3344,11 @@ have not yet been acknowledged.<a href="#section-7.1-5" class="pilcrow">¶</a></
 <p id="section-7.1-6">Note: While some post-handshake messages follow a request/response
 pattern, this does not necessarily imply receipt.
 For example, a KeyUpdate sent in response to a KeyUpdate with
-request_update set to "update_requested" does not implicitly
+request_update set to 'update_requested' does not implicitly
 acknowledge the earlier KeyUpdate message because the two KeyUpdate
 messages might have crossed in flight.<a href="#section-7.1-6" class="pilcrow">¶</a></p>
-<p id="section-7.1-7">ACKs MUST NOT be sent for records of any content type
-other than handshake or for records which cannot be deprotected.<a href="#section-7.1-7" class="pilcrow">¶</a></p>
+<p id="section-7.1-7">ACKs MUST NOT be sent for other records of any content type
+other than handshake or for records which cannot be unprotected.<a href="#section-7.1-7" class="pilcrow">¶</a></p>
 <p id="section-7.1-8">Note that in some cases it may be necessary to send an ACK which
 does not contain any record numbers. For instance, a client
 might receive an EncryptedExtensions message prior to receiving
@@ -3325,7 +3369,7 @@ the client send an empty ACK shortcuts this process.<a href="#section-7.1-8" cla
 messages or message fragments sent in the records being
 ACKed were received and omit them from any future
 retransmissions. Upon receipt of an ACK that leaves it with
-only some messages from a flight having been acknowledged,
+only some messages from a flight having been acknowledged
 an implementation SHOULD retransmit the unacknowledged
 messages or fragments. Note that this requires implementations to
 track which messages appear in which records. Once all the messages in a flight have been
@@ -3346,23 +3390,23 @@ flight to which it is responding.<a href="#section-7.2-1" class="pilcrow">¶</a>
         <h3 id="name-design-rationale">
 <a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-design-rationale" class="section-name selfRef">Design Rationale</a>
         </h3>
-<p id="section-7.3-1">ACK messages are used in two circumstances, namely:<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.3-1">ACK messages are used in two circumstances, namely :<a href="#section-7.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-7.3-2.1">On sign of disruption, or lack of progress; and<a href="#section-7.3-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-7.3-2.1">on sign of disruption, or lack of progress, and<a href="#section-7.3-2.1" class="pilcrow">¶</a>
 </li>
-          <li class="normal" id="section-7.3-2.2">To indicate complete receipt of the last flight in a handshake.<a href="#section-7.3-2.2" class="pilcrow">¶</a>
+          <li class="normal" id="section-7.3-2.2">to indicate complete receipt of the last flight in a handshake.<a href="#section-7.3-2.2" class="pilcrow">¶</a>
 </li>
         </ul>
-<p id="section-7.3-3">In the first case, the use of the ACK message is optional, because
+<p id="section-7.3-3">In the first case the use of the ACK message is optional because
 the peer will retransmit in any case and therefore the ACK just
 allows for selective or early retransmission, as opposed to the timeout-based whole
 flight retransmission in previous versions of DTLS. When DTLS 1.3 is used in deployments
-with lossy networks, such as low-power, long-range radio networks as well as
+with lossy networks, such as low-power, long range radio networks as well as
 low-power mesh networks, the use of ACKs is recommended.<a href="#section-7.3-3" class="pilcrow">¶</a></p>
 <p id="section-7.3-4">The use of the ACK for the second case is mandatory for the proper functioning of the
-protocol. For instance, the ACK message sent by the client in Figure 13
-acknowledges receipt and processing of Record 4 (containing the NewSessionTicket
-message), and if it is not sent, the server will continue retransmission
+protocol. For instance, the ACK message sent by the client in Figure 13,
+acknowledges receipt and processing of record 4 (containing the NewSessionTicket
+message) and if it is not sent the server will continue retransmission
 of the NewSessionTicket indefinitely until its maximum retransmission count is reached.<a href="#section-7.3-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -3377,21 +3421,21 @@ of the NewSessionTicket indefinitely until its maximum retransmission count is r
 indicate that they are updating their sending keys.  As with other
 handshake messages with no built-in response, KeyUpdates MUST be
 acknowledged.  In order to facilitate epoch reconstruction
-(<a href="#reconstructing" class="xref">Section 4.2.2</a>), implementations MUST NOT send records with the new keys or
+<a href="#reconstructing" class="xref">Section 4.2.2</a> implementations MUST NOT send records with the new keys or
 send a new KeyUpdate until the previous KeyUpdate has been
 acknowledged (this avoids having too many epochs in active use).<a href="#section-8-1" class="pilcrow">¶</a></p>
-<p id="section-8-2">Due to loss and/or reordering, DTLS 1.3 implementations
+<p id="section-8-2">Due to loss and/or re-ordering, DTLS 1.3 implementations
 may receive a record with an older epoch than the
 current one (the requirements above preclude receiving
 a newer record). They SHOULD attempt to process those records
 with that epoch (see <a href="#reconstructing" class="xref">Section 4.2.2</a> for information
-on determining the correct epoch) but MAY opt to discard
+on determining the correct epoch), but MAY opt to discard
 such out-of-epoch records.<a href="#section-8-2" class="pilcrow">¶</a></p>
 <p id="section-8-3">Due to the possibility of an ACK message for a KeyUpdate being lost and thereby
 preventing the sender of the KeyUpdate from updating its keying material,
 receivers MUST retain the pre-update keying material until receipt and successful
 decryption of a message using the new keys.<a href="#section-8-3" class="pilcrow">¶</a></p>
-<p id="section-8-4"><a href="#dtls-key-update" class="xref">Figure 14</a> shows an example exchange illustrating that successful
+<p id="section-8-4"><a href="#dtls-key-update" class="xref">Figure 14</a> shows an example exchange illustrating that a successful
 ACK processing updates the keys of the KeyUpdate message sender, which is
 reflected in the change of epoch values.<a href="#section-8-4" class="pilcrow">¶</a></p>
 <span id="name-example-dtls-key-update"></span><div id="dtls-key-update">
@@ -3431,7 +3475,7 @@ Client                                             Server
                                                     (epoch=3)
 
 
-                                                        [ACK]
+                                                        [Ack]
                             &lt;--------               (epoch=3)
 
 
@@ -3444,7 +3488,7 @@ Client                                             Server
                                                     (epoch=3)
 
 
- [ACK]                      --------&gt;
+ [Ack]                      --------&gt;
  (epoch=4)
 
 
@@ -3456,6 +3500,15 @@ Client                                             Server
 <a href="#name-example-dtls-key-update" class="selfRef">Example DTLS Key Update</a>
         </figcaption></figure>
 </div>
+<p id="section-8-6">With a 128-bit key as in AES-256, rekeying 2^64 times has a high
+probability of key reuse within a given connection. Note that even if
+the key repeats, the IV is also independently generated. In order to
+provide an extra margin of security, sending implementations MUST NOT
+allow the epoch to exceed 2^48-1. In order to allow this value to
+be changed later, receiving implementations MUST NOT
+enforce this rule. If a sending implementation receives a KeyUpdate
+with request_update set to "update_requested", it MUST NOT send
+its own KeyUpdate if that would cause it to exceed these limits.<a href="#section-8-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="connection-id-updates">
@@ -3465,7 +3518,7 @@ Client                                             Server
       </h2>
 <p id="section-9-1">If the client and server have negotiated the "connection_id"
 extension <span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span>, either side
-can send a new CID that it wishes the other side to use
+can send a new CID which it wishes the other side to use
 in a NewConnectionId message.<a href="#section-9-1" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-9-2">
 <pre>
@@ -3476,25 +3529,25 @@ in a NewConnectionId message.<a href="#section-9-1" class="pilcrow">¶</a></p>
     opaque ConnectionId&lt;0..2^8-1&gt;;
 
     struct {
-        ConnectionId cids&lt;0..2^16-1&gt;;
+        ConnectionIds cids&lt;0..2^16-1&gt;;
         ConnectionIdUsage usage;
     } NewConnectionId;
 </pre><a href="#section-9-2" class="pilcrow">¶</a>
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-9-3">
         <dt id="section-9-3.1">
-cids:  </dt>
+cid  </dt>
         <dd style="margin-left: 1.5em" id="section-9-3.2">
-          <p id="section-9-3.2.1">Indicates the set of CIDs that the sender wishes the peer to use.<a href="#section-9-3.2.1" class="pilcrow">¶</a></p>
+          <p id="section-9-3.2.1">Indicates the set of CIDs which the sender wishes the peer to use.<a href="#section-9-3.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
 <dt id="section-9-3.3">
-usage:  </dt>
+usage  </dt>
         <dd style="margin-left: 1.5em" id="section-9-3.4">
           <p id="section-9-3.4.1">Indicates whether the new CIDs should be used immediately or are
-spare.  If usage is set to "cid_immediate", then one of the new CIDs
+spare.  If usage is set to "cid_immediate", then one of the new CID
 MUST be used immediately for all future records. If it is set to
-"cid_spare", then either an existing or new CID MAY be used.<a href="#section-9-3.4.1" class="pilcrow">¶</a></p>
+"cid_spare", then either existing or new CID MAY be used.<a href="#section-9-3.4.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
@@ -3508,7 +3561,7 @@ send NewConnectionId. Implementations MUST NOT send RequestConnectionId
 when sending an empty Connection ID. Implementations which detect a violation
 of these rules MUST terminate the connection with an "unexpected_message"
 alert.<a href="#section-9-5" class="pilcrow">¶</a></p>
-<p id="section-9-6">Implementations SHOULD use a new CID whenever sending on a new path
+<p id="section-9-6">Implementations SHOULD use a new CID whenever sending on a new path,
 and SHOULD request new CIDs for this purpose if path changes are anticipated.<a href="#section-9-6" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-9-7">
 <pre>
@@ -3519,25 +3572,25 @@ and SHOULD request new CIDs for this purpose if path changes are anticipated.<a 
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-9-8">
         <dt id="section-9-8.1">
-num_cids:  </dt>
+num_cids  </dt>
         <dd style="margin-left: 1.5em" id="section-9-8.2">
           <p id="section-9-8.2.1">The number of CIDs desired.<a href="#section-9-8.2.1" class="pilcrow">¶</a></p>
 </dd>
       <dd class="break"></dd>
 </dl>
 <p id="section-9-9">Endpoints SHOULD respond to RequestConnectionId by sending a
-NewConnectionId with usage "cid_spare" containing num_cids CIDs as soon as
+NewConnectionId with usage "cid_spare" containing num_cid CIDs soon as
 possible.  Endpoints MUST NOT send a RequestConnectionId message
 when an existing request is still unfulfilled; this implies that
-endpoints need to request new CIDs well in advance.  An endpoint MAY
-handle requests which it considers excessive by responding with
-a NewConnectionId message containing fewer than num_cids CIDs,
+endpoints needs to request new CIDs well in advance.  An endpoint MAY
+handle requests, which it considers excessive, by responding with
+a NewConnectionId message containing fewer than num_cid CIDs,
 including no CIDs at all. Endpoints MAY handle an excessive number
 of RequestConnectionId messages by terminating the connection
 using a "too_many_cids_requested" (alert number 52) alert.<a href="#section-9-9" class="pilcrow">¶</a></p>
 <p id="section-9-10">Endpoints MUST NOT send either of these messages if they did not negotiate a
 CID. If an implementation receives these messages when CIDs
-were not negotiated, it MUST abort the connection with an "unexpected_message"
+were not negotiated, it MUST abort the connection with an unexpected_message
 alert.<a href="#section-9-10" class="pilcrow">¶</a></p>
 <div id="connection-id-example">
 <section id="section-9.1">
@@ -3546,9 +3599,9 @@ alert.<a href="#section-9-10" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-9.1-1">Below is an example exchange for DTLS 1.3 using a single
 CID in each direction.<a href="#section-9.1-1" class="pilcrow">¶</a></p>
-<p id="section-9.1-2">Note: The "connection_id" extension, 
-which is used in ClientHello and ServerHello messages,
-is defined in <span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span>.<a href="#section-9.1-2" class="pilcrow">¶</a></p>
+<p id="section-9.1-2">Note: The connection_id extension is defined in
+<span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span>, which is used
+in ClientHello and ServerHello messages.<a href="#section-9.1-2" class="pilcrow">¶</a></p>
 <span id="name-example-dtls-13-exchange-wi"></span><div id="dtls-example">
 <figure id="figure-15">
           <div class="alignLeft art-text artwork" id="section-9.1-3.1">
@@ -3566,7 +3619,7 @@ ClientHello
 
 ClientHello                 --------&gt;
 (connection_id=5)
-  + cookie
+  +cookie
 
                             &lt;--------             ServerHello
                                           (connection_id=100)
@@ -3585,7 +3638,7 @@ CertificateVerify
 (cid=100)
 Finished
 (cid=100)
-                           &lt;--------                      ACK
+                           &lt;--------                      Ack
                                                       (cid=5)
 
 Application Data           ========&gt;
@@ -3634,13 +3687,13 @@ cookie exchange with every handshake.<a href="#section-11-2" class="pilcrow">¶<
 <p id="section-11-3">Some key properties required of the cookie for the cookie-exchange mechanism
 to be functional are described in Section 3.3 of <span>[<a href="#RFC2522" class="xref">RFC2522</a>]</span>:<a href="#section-11-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-11-4.1">The cookie MUST depend on the client's address.<a href="#section-11-4.1" class="pilcrow">¶</a>
+<li class="normal" id="section-11-4.1">the cookie MUST depend on the client's address.<a href="#section-11-4.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-4.2">It MUST NOT be possible for anyone other than the issuing entity to generate
+        <li class="normal" id="section-11-4.2">it MUST NOT be possible for anyone other than the issuing entity to generate
 cookies that are accepted as valid by that entity.  This typically entails
 an integrity check based on a secret key.<a href="#section-11-4.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-4.3">Cookie generation and verification are triggered by unauthenticated parties,
+        <li class="normal" id="section-11-4.3">cookie generation and verification are triggered by unauthenticated parties,
 and as such their resource consumption needs to be restrained in order to
 avoid having the cookie-exchange mechanism itself serve as a DoS vector.<a href="#section-11-4.3" class="pilcrow">¶</a>
 </li>
@@ -3648,14 +3701,14 @@ avoid having the cookie-exchange mechanism itself serve as a DoS vector.<a href=
 <p id="section-11-5">Although the cookie must allow the server to produce the right handshake
 transcript, it SHOULD be constructed so that knowledge of the cookie
 is insufficient to reproduce the ClientHello contents. Otherwise,
-this may create problems with future extensions such as Encrypted Client Hello <span>[<a href="#I-D.ietf-tls-esni" class="xref">I-D.ietf-tls-esni</a>]</span>.<a href="#section-11-5" class="pilcrow">¶</a></p>
-<p id="section-11-6">When cookies are generated using a keyed authentication mechanism,
+this may create problems with future extensions such as <span>[<a href="#I-D.ietf-tls-esni" class="xref">I-D.ietf-tls-esni</a>]</span>.<a href="#section-11-5" class="pilcrow">¶</a></p>
+<p id="section-11-6">When cookies are generated using a keyed authentication mechanism
 it should be possible to rotate the associated
 secret key, so that temporary compromise of the key does not permanently
 compromise the integrity of the cookie-exchange mechanism.  Though this secret
 is not as high-value as, e.g., a session-ticket-encryption key, rotating the
 cookie-generation key on a similar timescale would ensure that the
-key rotation functionality is exercised regularly and thus in working order.<a href="#section-11-6" class="pilcrow">¶</a></p>
+key-rotation functionality is exercised regularly and thus in working order.<a href="#section-11-6" class="pilcrow">¶</a></p>
 <p id="section-11-7">The cookie exchange provides address validation during the initial handshake.
 DTLS with Connection IDs allows for endpoint addresses to change during the
 association; any such updated addresses are not covered by the cookie exchange
@@ -3681,33 +3734,28 @@ per-record replay-protection mechanism, since datagram protocols are
 inherently subject to message reordering and replay.  These two
 replay-protection mechanisms are orthogonal, and neither mechanism meets the
 requirements for the other.<a href="#section-11-10" class="pilcrow">¶</a></p>
-<p id="section-11-11">DTLS 1.3's handshake transcript does not include the new DTLS fields,
-which makes it have the same format as TLS 1.3. However, the DTLS 1.3 and
-TLS 1.3 transcripts are disjoint because they use different version
-numbers. Additionally, the DTLS 1.3 key schedule uses a different label
-and so will produce different keys for the sme transcript.<a href="#section-11-11" class="pilcrow">¶</a></p>
-<p id="section-11-12">The security and privacy properties of the CID for DTLS 1.3 build
+<p id="section-11-11">The security and privacy properties of the CID for DTLS 1.3 builds
 on top of what is described for DTLS 1.2 in <span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span>. There are,
-however, several differences:<a href="#section-11-12" class="pilcrow">¶</a></p>
+however, several differences:<a href="#section-11-11" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-11-13.1">In both versions of DTLS, extension negotiation is used to agree on the use of the CID
-feature and the CID values. In both versions, the CID is carried in the DTLS record header (if negotiated).
-However, the way the CID is included in the record header differs between the two versions.<a href="#section-11-13.1" class="pilcrow">¶</a>
+<li class="normal" id="section-11-12.1">In both versions of DTLS extension negotiation is used to agree on the use of the CID
+feature and the CID values. In both versions the CID is carried in the DTLS record header (if negotiated).
+However, the way the CID is included in the record header differs between the two versions.<a href="#section-11-12.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-13.2">The use of the post-handshake message allows the client and the server
-to update their CIDs, and those values are exchanged with confidentiality
-protection.<a href="#section-11-13.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-11-12.2">The use of the Post-Handshake message allows the client and the server
+to update their CIDs and those values are exchanged with confidentiality
+protection.<a href="#section-11-12.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-13.3">The ability to use multiple CIDs allows for improved privacy properties
-in multihomed scenarios. When only a single CID is in use on multiple
+        <li class="normal" id="section-11-12.3">The ability to use multiple CIDs allows for improved privacy properties
+in multi-homed scenarios. When only a single CID is in use on multiple
 paths from such a host, an adversary can correlate the communication
 interaction across paths, which adds further privacy concerns. In order
 to prevent this, implementations SHOULD attempt to use fresh CIDs
 whenever they change local addresses or ports (though this is not always
 possible to detect). The RequestConnectionId message can be used by a peer
-to ask for new CIDs to ensure that a pool of suitable CIDs is available.<a href="#section-11-13.3" class="pilcrow">¶</a>
+to ask for new CIDs to ensure that a pool of suitable CIDs is available.<a href="#section-11-12.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-13.4">The mechanism for encrypting sequence numbers (<a href="#rne" class="xref">Section 4.2.3</a>) prevents
+        <li class="normal" id="section-11-12.4">The mechanism for encrypting sequence numbers (<a href="#rne" class="xref">Section 4.2.3</a>) prevents
 trivial tracking by on-path adversaries that attempt to correlate the
 pattern of sequence numbers received on different paths; such tracking
 could occur even when different CIDs are used on each path, in the
@@ -3717,11 +3765,11 @@ adversaries.  Note that sequence number encryption is used for all
 encrypted DTLS 1.3 records irrespective of whether a CID is used or
 not.  Unlike the sequence number, the epoch is not encrypted because it acts as a key identifier, which
 may improve correlation of packets from a single connection across
-different network paths.<a href="#section-11-13.4" class="pilcrow">¶</a>
+different network paths.<a href="#section-11-12.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-11-13.5">DTLS 1.3 encrypts handshake messages much earlier than in previous
+        <li class="normal" id="section-11-12.5">DTLS 1.3 encrypts handshake messages much earlier than in previous
 DTLS versions. Therefore, less information identifying the DTLS client, such as
-the client certificate, is available to an on-path adversary.<a href="#section-11-13.5" class="pilcrow">¶</a>
+the client certificate, is available to an on-path adversary.<a href="#section-11-12.5" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
@@ -3732,30 +3780,30 @@ the client certificate, is available to an on-path adversary.<a href="#section-1
 <a href="#section-12" class="section-number selfRef">12. </a><a href="#name-changes-since-dtls-12" class="section-name selfRef">Changes since DTLS 1.2</a>
       </h2>
 <p id="section-12-1">Since TLS 1.3 introduces a large number of changes with respect to TLS 1.2, the list
-of changes from DTLS 1.2 to DTLS 1.3 is equally large. For this reason,
+of changes from DTLS 1.2 to DTLS 1.3 is equally large. For this reason
 this section focuses on the most important changes only.<a href="#section-12-1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-12-2.1">New handshake pattern, which leads to a shorter message exchange.<a href="#section-12-2.1" class="pilcrow">¶</a>
+<li class="normal" id="section-12-2.1">New handshake pattern, which leads to a shorter message exchange<a href="#section-12-2.1" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="section-12-2.2">Only AEAD ciphers are supported. Additional data calculation has been simplified.<a href="#section-12-2.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.3">Removed support for weaker and older cryptographic algorithms.<a href="#section-12-2.3" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.3">Removed support for weaker and older cryptographic algorithms<a href="#section-12-2.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.4">HelloRetryRequest of TLS 1.3 used instead of HelloVerifyRequest.<a href="#section-12-2.4" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.4">HelloRetryRequest of TLS 1.3 used instead of HelloVerifyRequest<a href="#section-12-2.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.5">More flexible cipher suite negotiation.<a href="#section-12-2.5" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.5">More flexible ciphersuite negotiation<a href="#section-12-2.5" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.6">New session resumption mechanism.<a href="#section-12-2.6" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.6">New session resumption mechanism<a href="#section-12-2.6" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.7">PSK authentication redefined.<a href="#section-12-2.7" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.7">PSK authentication redefined<a href="#section-12-2.7" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.8">New key derivation hierarchy utilizing a new key derivation construct.<a href="#section-12-2.8" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.8">New key derivation hierarchy utilizing a new key derivation construct<a href="#section-12-2.8" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.9">Improved version negotiation.<a href="#section-12-2.9" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.9">Improved version negotiation<a href="#section-12-2.9" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.10">Optimized record layer encoding and thereby its size.<a href="#section-12-2.10" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.10">Optimized record layer encoding and thereby its size<a href="#section-12-2.10" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-12-2.11">Added CID functionality.<a href="#section-12-2.11" class="pilcrow">¶</a>
+        <li class="normal" id="section-12-2.11">Added CID functionality<a href="#section-12-2.11" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="section-12-2.12">Sequence numbers are encrypted.<a href="#section-12-2.12" class="pilcrow">¶</a>
 </li>
@@ -3765,19 +3813,19 @@ this section focuses on the most important changes only.<a href="#section-12-1" 
 <div id="updates-affecting-dtls-12">
 <section id="section-13">
       <h2 id="name-updates-affecting-dtls-12">
-<a href="#section-13" class="section-number selfRef">13. </a><a href="#name-updates-affecting-dtls-12" class="section-name selfRef">Updates Affecting DTLS 1.2</a>
+<a href="#section-13" class="section-number selfRef">13. </a><a href="#name-updates-affecting-dtls-12" class="section-name selfRef">Updates affecting DTLS 1.2</a>
       </h2>
 <p id="section-13-1">This document defines several changes that optionally affect
 implementations of DTLS 1.2, including those which do not also support
 DTLS 1.3.<a href="#section-13-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-13-2.1">A version downgrade protection mechanism as described
-in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, Section 4.1.3 and applying to DTLS as
+in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>; Section 4.1.3 and applying to DTLS as
 described in <a href="#clienthello-message" class="xref">Section 5.3</a>.<a href="#section-13-2.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-13-2.2">The updates described in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, Section 1.3.<a href="#section-13-2.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-13-2.2">The updates described in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>; Section 3.<a href="#section-13-2.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-13-2.3">The new compliance requirements described in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, Section 9.3.<a href="#section-13-2.3" class="pilcrow">¶</a>
+        <li class="normal" id="section-13-2.3">The new compliance requirements described in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>; Section 9.3.<a href="#section-13-2.3" class="pilcrow">¶</a>
 </li>
       </ul>
 </section>
@@ -3787,25 +3835,25 @@ described in <a href="#clienthello-message" class="xref">Section 5.3</a>.<a href
       <h2 id="name-iana-considerations">
 <a href="#section-14" class="section-number selfRef">14. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-14-1">IANA has allocated the content type value 26 in the "TLS ContentType"
-registry for the ACK message, defined in <a href="#ack-msg" class="xref">Section 7</a>.
-The value for the "DTLS-OK" column is "Y".  IANA has reserved
+<p id="section-14-1">IANA is requested to allocate a new value in the "TLS ContentType"
+registry for the ACK message, defined in <a href="#ack-msg" class="xref">Section 7</a>, with content type 26.
+The value for the "DTLS-OK" column is "Y".  IANA is requested to reserve
 the content type range 32-63 so that content types in this range are not
 allocated.<a href="#section-14-1" class="pilcrow">¶</a></p>
-<p id="section-14-2">IANA has allocated value 52 for the "too_many_cids_requested" alert in
-the "TLS Alerts" registry. The value for the "DTLS-OK" column is "Y".<a href="#section-14-2" class="pilcrow">¶</a></p>
-<p id="section-14-3">IANA has allocated two values in the "TLS HandshakeType"
-registry, defined in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, for request_connection_id (9) and
-NewConnectionId (10), as defined in this document.  The value for the
-"DTLS-OK" column is "Y".<a href="#section-14-3" class="pilcrow">¶</a></p>
-<p id="section-14-4">IANA has added this RFC as a reference to the "TLS Cipher Suites" Registry
+<p id="section-14-2">IANA is requested to allocate "the too_many_cids_requested" alert in
+the "TLS Alerts" registry with value 52.<a href="#section-14-2" class="pilcrow">¶</a></p>
+<p id="section-14-3">IANA is requested to allocate two values in the "TLS Handshake Type"
+registry, defined in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, for RequestConnectionId (TBD), and
+NewConnectionId (TBD), as defined in this document.  The value for the
+"DTLS-OK" columns are "Y".<a href="#section-14-3" class="pilcrow">¶</a></p>
+<p id="section-14-4">IANA is requested to add this RFC as a reference to the TLS Cipher Suite Registry
 along with the following Note:<a href="#section-14-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-14-5">
 <pre>
 Any TLS cipher suite that is specified for use with DTLS MUST
 define limits on the use of the associated AEAD function that
 preserves margins for both confidentiality and integrity,
-as specified in Section 4.5.3 of RFC 9147.
+as specified in [THIS RFC; Section TODO]
 </pre><a href="#section-14-5" class="pilcrow">¶</a>
 </div>
 </section>
@@ -3888,15 +3936,11 @@ as specified in Section 4.5.3 of RFC 9147.
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-esni">[I-D.ietf-tls-esni]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-13</span>, <time datetime="2021-08-12" class="refDate">12 August 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-tls-esni-13.txt">https://www.ietf.org/archive/id/draft-ietf-tls-esni-13.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-14</span>, <time datetime="2022-02-13" class="refDate">13 February 2022</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-tls-esni-14.txt">https://www.ietf.org/archive/id/draft-ietf-tls-esni-14.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-uta-tls13-iot-profile">[I-D.ietf-uta-tls13-iot-profile]</dt>
         <dd>
 <span class="refAuthor">Tschofenig, H.</span> and <span class="refAuthor">T. Fossati</span>, <span class="refTitle">"TLS/DTLS 1.3 Profiles for the Internet of Things"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-uta-tls13-iot-profile-03</span>, <time datetime="2021-10-25" class="refDate">25 October 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-uta-tls13-iot-profile-03.txt">https://www.ietf.org/archive/id/draft-ietf-uta-tls13-iot-profile-03.txt</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="I-D.irtf-cfrg-aead-limits">[I-D.irtf-cfrg-aead-limits]</dt>
-        <dd>
-<span class="refAuthor">Günther, F.</span>, <span class="refAuthor">Thomson, M.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Usage Limits on AEAD Algorithms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-aead-limits-03</span>, <time datetime="2021-07-12" class="refDate">12 July 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-irtf-cfrg-aead-limits-03.txt">https://www.ietf.org/archive/id/draft-irtf-cfrg-aead-limits-03.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2522">[RFC2522]</dt>
         <dd>
@@ -3974,10 +4018,6 @@ as specified in Section 4.5.3 of RFC 9147.
         <dd>
 <span class="refAuthor">Ghedini, A.</span> and <span class="refAuthor">V. Vasiliev</span>, <span class="refTitle">"TLS Certificate Compression"</span>, <span class="seriesInfo">RFC 8879</span>, <span class="seriesInfo">DOI 10.17487/RFC8879</span>, <time datetime="2020-12" class="refDate">December 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8879">https://www.rfc-editor.org/info/rfc8879</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="RFC9000">[RFC9000]</dt>
-        <dd>
-<span class="refAuthor">Iyengar, J., Ed.</span> and <span class="refAuthor">M. Thomson, Ed.</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="seriesInfo">RFC 9000</span>, <span class="seriesInfo">DOI 10.17487/RFC9000</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc9000">https://www.rfc-editor.org/info/rfc9000</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="ROBUST">[ROBUST]</dt>
       <dd>
 <span class="refAuthor">Fischlin, M.</span>, <span class="refAuthor">Günther, F.</span>, and <span class="refAuthor">C. Janson</span>, <span class="refTitle">"Robust Channels: Handling Unreliable Networks in the Record Layers of QUIC and DTLS 1.3"</span>, <time datetime="2020-06-15" class="refDate">15 June 2020</time>, <span>&lt;<a href="https://eprint.iacr.org/2020/718">https://eprint.iacr.org/2020/718</a>&gt;</span>. </dd>
@@ -4035,8 +4075,8 @@ struct {
 +-+-+-+-+-+-+-+-+
 
 struct {
-    uint16 epoch;
-    uint48 sequence_number;
+    uint64 epoch;
+    uint64 sequence_number;
 } RecordNumber;
 </pre><a href="#appendix-A.1-1" class="pilcrow">¶</a>
 </div>
@@ -4049,6 +4089,30 @@ struct {
         </h3>
 <div class="alignLeft art-text artwork" id="appendix-A.2-1">
 <pre>
+enum {
+    hello_request_RESERVED(0),
+    client_hello(1),
+    server_hello(2),
+    hello_verify_request_RESERVED(3),
+    new_session_ticket(4),
+    end_of_early_data(5),
+    hello_retry_request_RESERVED(6),
+    encrypted_extensions(8),
+    certificate(11),
+    server_key_exchange_RESERVED(12),
+    certificate_request(13),
+    server_hello_done_RESERVED(14),
+    certificate_verify(15),
+    client_key_exchange_RESERVED(16),
+    finished(20),
+    certificate_url_RESERVED(21),
+    certificate_status_RESERVED(22),
+    supplemental_data_RESERVED(23),
+    key_update(24),
+    message_hash(254),
+    (255)
+} HandshakeType;
+
 struct {
     HandshakeType msg_type;    /* handshake type */
     uint24 length;             /* bytes in message */
@@ -4059,17 +4123,15 @@ struct {
         case client_hello:          ClientHello;
         case server_hello:          ServerHello;
         case end_of_early_data:     EndOfEarlyData;
-        case new_session_ticket:    NewSessionTicket;
         case encrypted_extensions:  EncryptedExtensions;
-        case request_connection_id: RequestedConnectionId;
-        case new_connection_id:     NewConnectionId;
-        case certificate:           Certificate;
         case certificate_request:   CertificateRequest;
+        case certificate:           Certificate;
         case certificate_verify:    CertificateVerify;
         case finished:              Finished;
+        case new_session_ticket:    NewSessionTicket;
         case key_update:            KeyUpdate;
     } body;
-} DTLSHandshake;
+} Handshake;
 
 uint16 ProtocolVersion;
 opaque Random[32];
@@ -4117,7 +4179,7 @@ enum {
 opaque ConnectionId&lt;0..2^8-1&gt;;
 
 struct {
-    ConnectionId cids&lt;0..2^16-1&gt;;
+    ConnectionIds cids&lt;0..2^16-1&gt;;
     ConnectionIdUsage usage;
 } NewConnectionId;
 
@@ -4204,8 +4266,8 @@ no more than:<a href="#appendix-B.1-1" class="pilcrow">¶</a></p>
 (2l * q)^2 / 2^n
 </pre><a href="#appendix-B.1-2" class="pilcrow">¶</a>
 </div>
-<p id="appendix-B.1-3">For a target advantage in a single-key setting of 2^-60, which matches that used by TLS 1.3,
-as summarized in <span>[<a href="#I-D.irtf-cfrg-aead-limits" class="xref">I-D.irtf-cfrg-aead-limits</a>]</span>, this results in the relation:<a href="#appendix-B.1-3" class="pilcrow">¶</a></p>
+<p id="appendix-B.1-3">For a target advantage of 2^-60, which matches that used by <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>, this
+results in the relation:<a href="#appendix-B.1-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-B.1-4">
 <pre>
 q &lt;= 2^23
@@ -4229,7 +4291,7 @@ v / 2^t + (2l * (v + q))^2 / 2^n
 </pre><a href="#appendix-B.2-2" class="pilcrow">¶</a>
 </div>
 <p id="appendix-B.2-3">The goal is to limit this advantage to 2^-57, to match the target in
-TLS 1.3, as summarized in <span>[<a href="#I-D.irtf-cfrg-aead-limits" class="xref">I-D.irtf-cfrg-aead-limits</a>]</span>. As <code>t</code> and <code>n</code> are both 128, the first term is negligible relative
+<span>[<a href="#TLS13" class="xref">TLS13</a>]</span>. As <code>t</code> and <code>n</code> are both 128, the first term is negligible relative
 to the second, so that term can be removed without a significant effect on the
 result. This produces the relation:<a href="#appendix-B.2-3" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="appendix-B.2-4">
@@ -4237,7 +4299,7 @@ result. This produces the relation:<a href="#appendix-B.2-3" class="pilcrow">¶<
 v + q &lt;= 2^24.5
 </pre><a href="#appendix-B.2-4" class="pilcrow">¶</a>
 </div>
-<p id="appendix-B.2-5">Using the previously established value of 2^23 for <code>q</code> and rounding, this leads
+<p id="appendix-B.2-5">Using the previously-established value of 2^23 for <code>q</code> and rounding, this leads
 to an upper limit on <code>v</code> of 2^23.5. That is, endpoints cannot attempt to
 authenticate more than 2^23.5 packets with the same set of keys without causing
 an attacker to gain an larger advantage than the target of 2^-57.<a href="#appendix-B.2-5" class="pilcrow">¶</a></p>
@@ -4262,10 +4324,10 @@ is largely dictated by the first term of the advantage formula:<a href="#appendi
 v &lt;= 2^7
 </pre><a href="#appendix-B.3-4" class="pilcrow">¶</a>
 </div>
-<p id="appendix-B.3-5">As this represents attempts that fail authentication, applying this limit might
+<p id="appendix-B.3-5">As this represents attempts to fail authentication, applying this limit might
 be feasible in some environments. However, applying this limit in an
 implementation intended for general use exposes connections to an inexpensive
-denial-of-service attack.<a href="#appendix-B.3-5" class="pilcrow">¶</a></p>
+denial of service attack.<a href="#appendix-B.3-5" class="pilcrow">¶</a></p>
 <p id="appendix-B.3-6">This analysis supports the view that TLS_AES_128_CCM_8_SHA256 is not suitable
 for general use. Specifically, TLS_AES_128_CCM_8_SHA256 cannot be used without
 additional measures to prevent forgery of records, or to mitigate the effect of
@@ -4283,7 +4345,7 @@ understanding of the constraints imposed on a specific usage of DTLS.<a href="#a
 <a href="#appendix-C" class="section-number selfRef">Appendix C. </a><a href="#name-implementation-pitfalls" class="section-name selfRef">Implementation Pitfalls</a>
       </h2>
 <p id="appendix-C-1">In addition to the aspects of TLS that have been a source of interoperability
-and security problems (Appendix C.3 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>), DTLS presents a few new
+and security problems (Section C.3 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>), DTLS presents a few new
 potential sources of issues, noted here.<a href="#appendix-C-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="appendix-C-2.1">Do you correctly handle messages received from multiple epochs during a key
@@ -4308,101 +4370,234 @@ datagram in which it is contained?<a href="#appendix-C-2.6" class="pilcrow">¶</
       </ul>
 </section>
 </div>
-<div id="contributors">
+<div id="history">
 <section id="appendix-D">
-      <h2 id="name-contributors">
-<a href="#appendix-D" class="section-number selfRef">Appendix D. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
+      <h2 id="name-history">
+<a href="#appendix-D" class="section-number selfRef">Appendix D. </a><a href="#name-history" class="section-name selfRef">History</a>
       </h2>
-<p id="appendix-D-1">Many people have contributed to previous DTLS versions and they are acknowledged
+<p id="appendix-D-1">RFC EDITOR: PLEASE REMOVE THE THIS SECTION<a href="#appendix-D-1" class="pilcrow">¶</a></p>
+<p id="appendix-D-2">(*) indicates a change that may affect interoperability.<a href="#appendix-D-2" class="pilcrow">¶</a></p>
+<p id="appendix-D-3">IETF Drafts
+draft-42<a href="#appendix-D-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-D-4.1">SHOULD level requirement for the client to offer CID
+extension.<a href="#appendix-D-4.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-4.2">Change the default retransmission timer to 1s and
+allow people to do otherwise if they have side knowledge.<a href="#appendix-D-4.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-4.3">Cap any given flight to 10 records<a href="#appendix-D-4.3" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-4.4">Don't re-set the timer to the initial value but to 1.5
+times the measured RTT.<a href="#appendix-D-4.4" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-4.5">A bunch more clarity about the reliability algorithms
+and timers (including changing reset to re-arm)<a href="#appendix-D-4.5" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-4.6">Update IANA considerations<a href="#appendix-D-4.6" class="pilcrow">¶</a>
+</li>
+      </ul>
+<p id="appendix-D-5">draft-40<a href="#appendix-D-5" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-D-6">
+<pre>
+   - Clarified encrypted_record structure in DTLS 1.3 record layer
+   - Added description of the demultiplexing process
+   - Added text about the DTLS 1.2 and DTLS 1.3 CID mechanism
+   - Forbid going from an empty CID to a non-empty CID (*)
+   - Add warning about certificates and congestion
+   - Use DTLS style version values, even for DTLS 1.3 (*)
+   - Describe how to distinguish DTLS 1.2 and DTLS 1.3 connections
+   - Updated examples
+   - Included editorial improvements from Ben Kaduk
+   - Removed stale text about out-of-epoch records
+   - Added clarifications around when ACKs are sent
+   - Noted that alerts are unreliable
+   - Clarify when you can reset the timer
+   - Indicated that records with bogus epochs should be discarded
+   - Relax age out text
+   - Updates to cookie text
+   - Require that cipher suites define a record number encryption algorithm
+   - Clean up use of connection and association
+   - Reference tls-old-versions-deprecate
+</pre><a href="#appendix-D-6" class="pilcrow">¶</a>
+</div>
+<p id="appendix-D-7">draft-39
+- Updated Figure 4 due to misalignment with Figure 3 content<a href="#appendix-D-7" class="pilcrow">¶</a></p>
+<p id="appendix-D-8">draft-38
+- Ban implicit Connection IDs (*)
+- ACKs are processed as the union.<a href="#appendix-D-8" class="pilcrow">¶</a></p>
+<p id="appendix-D-9">draft-37:
+- Fix the other place where we have ACK.<a href="#appendix-D-9" class="pilcrow">¶</a></p>
+<p id="appendix-D-10">draft-36:
+- Some editorial changes.
+- Changed the content type to not conflict with existing allocations (*)<a href="#appendix-D-10" class="pilcrow">¶</a></p>
+<p id="appendix-D-11">draft-35:
+- I-D.ietf-tls-dtls-connection-id became a normative reference
+- Removed duplicate reference to I-D.ietf-tls-dtls-connection-id.
+- Fix figure 11 to have the right numbers andno cookie in message 1.
+- Clarify when you can ACK.
+- Clarify additional data computation.<a href="#appendix-D-11" class="pilcrow">¶</a></p>
+<p id="appendix-D-12">draft-33:
+- Key separation between TLS and DTLS. Issue #72.<a href="#appendix-D-12" class="pilcrow">¶</a></p>
+<p id="appendix-D-13">draft-32:
+- Editorial improvements and clarifications.<a href="#appendix-D-13" class="pilcrow">¶</a></p>
+<p id="appendix-D-14">draft-31:
+- Editorial improvements in text and figures.
+- Added normative reference to ChaCha20 and Poly1305.<a href="#appendix-D-14" class="pilcrow">¶</a></p>
+<p id="appendix-D-15">draft-30:
+- Changed record format
+- Added text about end of early data
+- Changed format of the Connection ID Update message
+- Added Appendix A "Protocol Data Structures and Constant Values"<a href="#appendix-D-15" class="pilcrow">¶</a></p>
+<p id="appendix-D-16">draft-29:
+- Added support for sequence number encryption
+- Update to new record format
+- Emphasize that compatibility mode isn't used.<a href="#appendix-D-16" class="pilcrow">¶</a></p>
+<p id="appendix-D-17">draft-28:
+- Version bump to align with TLS 1.3 pre-RFC version.<a href="#appendix-D-17" class="pilcrow">¶</a></p>
+<p id="appendix-D-18">draft-27:
+- Incorporated unified header format.
+- Added support for CIDs.<a href="#appendix-D-18" class="pilcrow">¶</a></p>
+<p id="appendix-D-19">draft-04 - 26:
+- Submissions to align with TLS 1.3 draft versions<a href="#appendix-D-19" class="pilcrow">¶</a></p>
+<p id="appendix-D-20">draft-03
+- Only update keys after KeyUpdate is ACKed.<a href="#appendix-D-20" class="pilcrow">¶</a></p>
+<p id="appendix-D-21">draft-02
+- Shorten the protected record header and introduce an ultra-short
+  version of the record header.
+- Reintroduce KeyUpdate, which works properly now that we have ACK.
+- Clarify the ACK rules.<a href="#appendix-D-21" class="pilcrow">¶</a></p>
+<p id="appendix-D-22">draft-01
+- Restructured the ACK to contain a list of records and also
+  be a record rather than a handshake message.<a href="#appendix-D-22" class="pilcrow">¶</a></p>
+<p id="appendix-D-23">draft-00
+- First IETF Draft<a href="#appendix-D-23" class="pilcrow">¶</a></p>
+<p id="appendix-D-24">Personal Drafts
+draft-01
+- Alignment with version -19 of the TLS 1.3 specification<a href="#appendix-D-24" class="pilcrow">¶</a></p>
+<p id="appendix-D-25">draft-00<a href="#appendix-D-25" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="appendix-D-26.1">Initial version using TLS 1.3 as a baseline.<a href="#appendix-D-26.1" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-26.2">Use of epoch values instead of KeyUpdate message<a href="#appendix-D-26.2" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-26.3">Use of cookie extension instead of cookie field in
+ClientHello and HelloVerifyRequest messages<a href="#appendix-D-26.3" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-26.4">Added ACK message<a href="#appendix-D-26.4" class="pilcrow">¶</a>
+</li>
+        <li class="normal" id="appendix-D-26.5">Text about sequence number handling<a href="#appendix-D-26.5" class="pilcrow">¶</a>
+</li>
+      </ul>
+</section>
+</div>
+<div id="working-group-information">
+<section id="appendix-E">
+      <h2 id="name-working-group-information">
+<a href="#appendix-E" class="section-number selfRef">Appendix E. </a><a href="#name-working-group-information" class="section-name selfRef">Working Group Information</a>
+      </h2>
+<p id="appendix-E-1">RFC EDITOR: PLEASE REMOVE THIS SECTION.<a href="#appendix-E-1" class="pilcrow">¶</a></p>
+<p id="appendix-E-2">The discussion list for the IETF TLS working group is located at the e-mail
+address <a href="mailto:tls@ietf.org">tls@ietf.org</a>. Information on the group and information on how to
+subscribe to the list is at <a href="https://www1.ietf.org/mailman/listinfo/tls">https://www1.ietf.org/mailman/listinfo/tls</a><a href="#appendix-E-2" class="pilcrow">¶</a></p>
+<p id="appendix-E-3">Archives of the list can be found at:
+<a href="https://www.ietf.org/mail-archive/web/tls/current/index.html">https://www.ietf.org/mail-archive/web/tls/current/index.html</a><a href="#appendix-E-3" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="contributors">
+<section id="appendix-F">
+      <h2 id="name-contributors">
+<a href="#appendix-F" class="section-number selfRef">Appendix F. </a><a href="#name-contributors" class="section-name selfRef">Contributors</a>
+      </h2>
+<p id="appendix-F-1">Many people have contributed to previous DTLS versions and they are acknowledged
 in prior versions of DTLS specifications or in the referenced specifications. The
-following people made significant contributions to this specification:<a href="#appendix-D-1" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="appendix-D-2">
+sequence number encryption concept is taken from the QUIC specification. We would
+like to thank the authors of the QUIC specification for their work. Felix
+Guenther and Martin Thomson contributed the analysis in <a href="#ccm-bounds" class="xref">Appendix B</a>.<a href="#appendix-F-1" class="pilcrow">¶</a></p>
+<p id="appendix-F-2">In addition, we would like to thank:<a href="#appendix-F-2" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="appendix-F-3">
 <pre>
 * David Benjamin
   Google
   davidben@google.com
-</pre><a href="#appendix-D-2" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-3" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-3">
+<div class="alignLeft art-text artwork" id="appendix-F-4">
 <pre>
 * Thomas Fossati
   Arm Limited
   Thomas.Fossati@arm.com
-</pre><a href="#appendix-D-3" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-4" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-4">
+<div class="alignLeft art-text artwork" id="appendix-F-5">
 <pre>
 * Tobias Gondrom
   Huawei
   tobias.gondrom@gondrom.org
-</pre><a href="#appendix-D-4" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-5" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-5">
+<div class="alignLeft art-text artwork" id="appendix-F-6">
 <pre>
 * Felix Günther
   ETH Zurich
   mail@felixguenther.info
-</pre><a href="#appendix-D-5" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-6" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-6">
+<div class="alignLeft art-text artwork" id="appendix-F-7">
 <pre>
 * Benjamin Kaduk
   Akamai Technologies
   kaduk@mit.edu
-</pre><a href="#appendix-D-6" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-7" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-7">
+<div class="alignLeft art-text artwork" id="appendix-F-8">
 <pre>
 * Ilari Liusvaara
   Independent
   ilariliusvaara@welho.com
-</pre><a href="#appendix-D-7" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-8" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-8">
+<div class="alignLeft art-text artwork" id="appendix-F-9">
 <pre>
 * Martin Thomson
   Mozilla
   mt@lowentropy.net
-</pre><a href="#appendix-D-8" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-9" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-9">
+<div class="alignLeft art-text artwork" id="appendix-F-10">
 <pre>
 * Christopher A. Wood
   Apple Inc.
   cawood@apple.com
-</pre><a href="#appendix-D-9" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-10" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-10">
+<div class="alignLeft art-text artwork" id="appendix-F-11">
 <pre>
 * Yin Xinxing
   Huawei
   yinxinxing@huawei.com
-</pre><a href="#appendix-D-10" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-11" class="pilcrow">¶</a>
 </div>
-<div class="alignLeft art-text artwork" id="appendix-D-11">
+<div class="alignLeft art-text artwork" id="appendix-F-12">
 <pre>
 * Hanno Becker
   Arm Limited
   Hanno.Becker@arm.com
-</pre><a href="#appendix-D-11" class="pilcrow">¶</a>
+</pre><a href="#appendix-F-12" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
 <div id="acknowledgements">
-<section id="appendix-E">
+<section id="appendix-G">
       <h2 id="name-acknowledgements">
-<a href="#appendix-E" class="section-number selfRef">Appendix E. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
+<a href="#appendix-G" class="section-number selfRef">Appendix G. </a><a href="#name-acknowledgements" class="section-name selfRef">Acknowledgements</a>
       </h2>
-<p id="appendix-E-1">The sequence number encryption concept is taken from QUIC
-<span>[<a href="#RFC9000" class="xref">RFC9000</a>]</span>. We would like to thank the authors of RFC 9000 for their
-work. Felix Guenther and Martin Thomson contributed the analysis in
-<a href="#ccm-bounds" class="xref">Appendix B</a>. We would like to thank Jonathan Hammell, Bernard
-Aboba, and Andy Cunningham for their review comments.<a href="#appendix-E-1" class="pilcrow">¶</a></p>
-<p id="appendix-E-2">Additionally, we would like to thank the IESG members for their review comments: Martin Duke, Erik Kline, Francesca Palombini, Lars Eggert, Zaheduzzaman Sarker, John Scudder, Eric Vyncke, Robert Wilton, Roman Danyliw, Benjamin Kaduk, Murray Kucherawy, Martin Vigoureux, and Alvaro Retana.<a href="#appendix-E-2" class="pilcrow">¶</a></p>
+<p id="appendix-G-1">We would like to thank Jonathan Hammell, Bernard Aboba and Andy Cunningham for their review comments.<a href="#appendix-G-1" class="pilcrow">¶</a></p>
+<p id="appendix-G-2">Additionally, we would like to thank the IESG members for their review comments: Martin Duke, Erik Kline, Francesca Palombini, Lars Eggert, Zaheduzzaman Sarker, John Scudder, Eric Vyncke, Robert Wilton, Roman Danyliw, Benjamin Kaduk, Murray Kucherawy, Martin Vigoureux, and Alvaro Retana<a href="#appendix-G-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="authors-addresses">
-<section id="appendix-F">
+<section id="appendix-H">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
