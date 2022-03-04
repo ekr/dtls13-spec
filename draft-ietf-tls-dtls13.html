@@ -17,11 +17,11 @@ forgery.
 1.3 protocol and provides equivalent security guarantees with the exception of order protection/non-replayability.  Datagram semantics of the underlying transport are preserved by the DTLS protocol. 
        This document obsoletes RFC 6347. 
     " name="description">
-<meta content="xml2rfc 3.12.2" name="generator">
+<meta content="xml2rfc 3.12.3" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-tls-dtls13-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.12.2
+  xml2rfc 3.12.3
     Python 3.9.7
     appdirs 1.4.4
     ConfigArgParse 1.3
@@ -31,6 +31,7 @@ forgery.
     Jinja2 2.11.3
     kitchen 1.2.6
     lxml 4.6.5
+    MarkupSafe 2.0.1
     pycountry 20.7.3
     pyflakes 2.3.1
     PyYAML 5.4.1
@@ -826,11 +827,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DTLS 1.3</td>
-<td class="right">February 2022</td>
+<td class="right">March 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rescorla, et al.</td>
-<td class="center">Expires 29 August 2022</td>
+<td class="center">Expires 5 September 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -846,12 +847,12 @@ address div.right {
 <a href="https://www.rfc-editor.org/rfc/rfc6347" class="eref">6347</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-02-25" class="published">25 February 2022</time>
+<time datetime="2022-03-04" class="published">4 March 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-08-29">29 August 2022</time></dd>
+<dd class="expires"><time datetime="2022-09-05">5 September 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -899,7 +900,7 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 29 August 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 5 September 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1447,8 +1448,7 @@ meaning of the fields is unchanged from previous TLS/DTLS versions.<a href="#sec
         </figcaption></figure>
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-4-6">
-        <dt id="section-4-6.1">
-legacy_record_version:  </dt>
+        <dt id="section-4-6.1">legacy_record_version:</dt>
         <dd style="margin-left: 1.5em" id="section-4-6.2">
           <p id="section-4-6.2.1">This value MUST be set to {254, 253} for all records other
 than the initial ClientHello (i.e., one not generated after a HelloRetryRequest),
@@ -1457,20 +1457,17 @@ It MUST be ignored for all purposes. See <span>[<a href="#TLS13" class="xref">TL
 for the rationale for this.<a href="#section-4-6.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-6.3">
-epoch  </dt>
+<dt id="section-4-6.3">epoch:</dt>
         <dd style="margin-left: 1.5em" id="section-4-6.4">
           <p id="section-4-6.4.1">The least significant 2 bytes of the connection epoch value.<a href="#section-4-6.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-6.5">
-unified_hdr:  </dt>
+<dt id="section-4-6.5">unified_hdr:</dt>
         <dd style="margin-left: 1.5em" id="section-4-6.6">
           <p id="section-4-6.6.1">The unified header (unified_hdr) is a structure of variable length, shown in <a href="#cid_hdr" class="xref">Figure 3</a>.<a href="#section-4-6.6.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-6.7">
-encrypted_record:  </dt>
+<dt id="section-4-6.7">encrypted_record:</dt>
         <dd style="margin-left: 1.5em" id="section-4-6.8">
           <p id="section-4-6.8.1">The encrypted form of the serialized DTLSInnerPlaintext structure.<a href="#section-4-6.8.1" class="pilcrow">¶</a></p>
 </dd>
@@ -1502,8 +1499,7 @@ encrypted_record:  </dt>
         </figcaption></figure>
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-4-8">
-        <dt id="section-4-8.1">
-Fixed Bits:  </dt>
+        <dt id="section-4-8.1">Fixed Bits:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.2">
           <p id="section-4-8.2.1">The three high bits of the first byte of the unified header are set to
 001. This ensures that the value will fit within the DTLS region when
@@ -1514,14 +1510,12 @@ such multiplexing is only possible when CIDs <span>[<a href="#I-D.ietf-tls-dtls-
 are in use, in which case DTLS 1.2 records will have the content type tls12_cid (25).<a href="#section-4-8.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-8.3">
-C:  </dt>
+<dt id="section-4-8.3">C:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.4">
           <p id="section-4-8.4.1">The C bit (0x10) is set if the Connection ID is present.<a href="#section-4-8.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-8.5">
-S:  </dt>
+<dt id="section-4-8.5">S:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.6">
           <p id="section-4-8.6.1">The S bit (0x08) indicates the size of the sequence number.
 0 means an 8-bit sequence number, 1 means 16-bit.
@@ -1529,35 +1523,30 @@ S:  </dt>
  on the same connection.<a href="#section-4-8.6.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-8.7">
-L:  </dt>
+<dt id="section-4-8.7">L:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.8">
           <p id="section-4-8.8.1">The L bit (0x04) is set if the length is present.<a href="#section-4-8.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-8.9">
-E:  </dt>
+<dt id="section-4-8.9">E:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.10">
           <p id="section-4-8.10.1">The two low bits (0x03) include the low-order two bits of the epoch.<a href="#section-4-8.10.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-8.11">
-Connection ID:  </dt>
+<dt id="section-4-8.11">Connection ID:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.12">
           <p id="section-4-8.12.1">Variable-length CID. The CID functionality
 is described in <span>[<a href="#I-D.ietf-tls-dtls-connection-id" class="xref">I-D.ietf-tls-dtls-connection-id</a>]</span>. An example
 can be found in <a href="#connection-id-example" class="xref">Section 9.1</a>.<a href="#section-4-8.12.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-8.13">
-Sequence Number:  </dt>
+<dt id="section-4-8.13">Sequence Number:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.14">
           <p id="section-4-8.14.1">The low-order 8 or 16 bits of the record sequence number.  This value is 16
 bits if the S bit is set to 1, and 8 bits if the S bit is 0.<a href="#section-4-8.14.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-8.15">
-Length:  </dt>
+<dt id="section-4-8.15">Length:</dt>
         <dd style="margin-left: 1.5em" id="section-4-8.16">
           <p id="section-4-8.16.1">Identical to the length field in a TLS 1.3 record.<a href="#section-4-8.16.1" class="pilcrow">¶</a></p>
 </dd>
@@ -2353,8 +2342,7 @@ TLS 1.3 ClientHello format, as shown below.<a href="#section-5.3-1" class="pilcr
 </pre><a href="#section-5.3-2" class="pilcrow">¶</a>
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-5.3-3">
-          <dt id="section-5.3-3.1">
-legacy_version:  </dt>
+          <dt id="section-5.3-3.1">legacy_version:</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.2">
             <p id="section-5.3-3.2.1">In previous versions of DTLS, this field was used for version
 negotiation and represented the highest version number supported by
@@ -2370,16 +2358,14 @@ number for DTLS 1.2. The supported_versions entries for DTLS 1.0 and DTLS 1.2 ar
 to indicate DTLS 1.3.<a href="#section-5.3-3.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.3-3.3">
-random:  </dt>
+<dt id="section-5.3-3.3">random:</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.4">
             <p id="section-5.3-3.4.1">Same as for TLS 1.3, except that the downgrade sentinels described
 in Section 4.1.3 of <span>[<a href="#TLS13" class="xref">TLS13</a>]</span> when TLS 1.2 and TLS 1.1 and below are negotiated
 apply to DTLS 1.2 and DTLS 1.0, respectively.<a href="#section-5.3-3.4.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.3-3.5">
-legacy_session_id:  </dt>
+<dt id="section-5.3-3.5">legacy_session_id:</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.6">
             <p id="section-5.3-3.6.1">Versions of TLS and DTLS before version 1.3 supported a "session resumption"
 feature, which has been merged with pre-shared keys (PSK) in version 1.3.  A client
@@ -2388,28 +2374,24 @@ field to that value. Otherwise, it MUST be set as a zero-length vector
 (i.e., a zero-valued single byte length field).<a href="#section-5.3-3.6.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.3-3.7">
-legacy_cookie:  </dt>
+<dt id="section-5.3-3.7">legacy_cookie:</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.8">
             <p id="section-5.3-3.8.1">A DTLS 1.3-only client MUST set the legacy_cookie field to zero length.
 If a DTLS 1.3 ClientHello is received with any other value in this field,
 the server MUST abort the handshake with an "illegal_parameter" alert.<a href="#section-5.3-3.8.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.3-3.9">
-cipher_suites:  </dt>
+<dt id="section-5.3-3.9">cipher_suites:</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.10">
             <p id="section-5.3-3.10.1">Same as for TLS 1.3; only suites with DTLS-OK=Y may be used.<a href="#section-5.3-3.10.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.3-3.11">
-legacy_compression_methods:  </dt>
+<dt id="section-5.3-3.11">legacy_compression_methods:</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.12">
             <p id="section-5.3-3.12.1">Same as for TLS 1.3.<a href="#section-5.3-3.12.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
-<dt id="section-5.3-3.13">
-extensions:  </dt>
+<dt id="section-5.3-3.13">extensions:</dt>
           <dd style="margin-left: 1.5em" id="section-5.3-3.14">
             <p id="section-5.3-3.14.1">Same as for TLS 1.3.<a href="#section-5.3-3.14.1" class="pilcrow">¶</a></p>
 </dd>
@@ -2965,8 +2947,6 @@ a peer is persistently sending bad messages and terminate the local
 connection state after such misbehavior is detected. Note that alerts
 are not reliably transmitted; implementations SHOULD NOT depend on
 receiving alerts in order to signal errors or connection closure.<a href="#section-5.10-1" class="pilcrow">¶</a></p>
-<p id="section-5.10-2">Any data received with an epoch/sequence number pair after
-that of a valid received closure alert MUST be ignored.<a href="#section-5.10-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="establishing-new-associations-with-existing-parameters">
@@ -3216,8 +3196,7 @@ sent in the same UDP datagram as handshake records.<a href="#section-7-1" class=
 </pre><a href="#section-7-2" class="pilcrow">¶</a>
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-7-3">
-        <dt id="section-7-3.1">
-record_numbers:  </dt>
+        <dt id="section-7-3.1">record_numbers:</dt>
         <dd style="margin-left: 1.5em" id="section-7-3.2">
           <p id="section-7-3.2.1">A list of the records containing handshake messages in the current
 flight which the endpoint has received and either processed or buffered,
@@ -3511,14 +3490,12 @@ in a NewConnectionId message.<a href="#section-9-1" class="pilcrow">¶</a></p>
 </pre><a href="#section-9-2" class="pilcrow">¶</a>
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-9-3">
-        <dt id="section-9-3.1">
-cids:  </dt>
+        <dt id="section-9-3.1">cids:</dt>
         <dd style="margin-left: 1.5em" id="section-9-3.2">
           <p id="section-9-3.2.1">Indicates the set of CIDs that the sender wishes the peer to use.<a href="#section-9-3.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-9-3.3">
-usage:  </dt>
+<dt id="section-9-3.3">usage:</dt>
         <dd style="margin-left: 1.5em" id="section-9-3.4">
           <p id="section-9-3.4.1">Indicates whether the new CIDs should be used immediately or are
 spare.  If usage is set to "cid_immediate", then one of the new CIDs
@@ -3547,8 +3524,7 @@ and SHOULD request new CIDs for this purpose if path changes are anticipated.<a 
 </pre><a href="#section-9-7" class="pilcrow">¶</a>
 </div>
 <span class="break"></span><dl class="dlParallel" id="section-9-8">
-        <dt id="section-9-8.1">
-num_cids:  </dt>
+        <dt id="section-9-8.1">num_cids:</dt>
         <dd style="margin-left: 1.5em" id="section-9-8.2">
           <p id="section-9-8.2.1">The number of CIDs desired.<a href="#section-9-8.2.1" class="pilcrow">¶</a></p>
 </dd>
@@ -3691,7 +3667,10 @@ association; any such updated addresses are not covered by the cookie exchange
 during the handshake.
 DTLS implementations MUST NOT update the address they send to in response
 to packets from a different address unless they first perform some
-reachability test; no such test is defined in this specification. Even
+reachability test; no such test is defined in this specification and
+a future specification would need to specify a complete
+procedure for how and when to update addresses.
+Even
 with such a test, an active on-path adversary can also black-hole traffic or
 create a reflection attack against third parties because a DTLS peer
 has no means to distinguish a genuine address update event (for
@@ -4175,34 +4154,29 @@ based on those chosen in <span>[<a href="#TLS13" class="xref">TLS13</a>]</span>.
 exponentiation (^), plus parentheses for establishing precedence. The following
 symbols are also used:<a href="#appendix-B-3" class="pilcrow">¶</a></p>
 <span class="break"></span><dl class="dlParallel" id="appendix-B-4">
-        <dt id="appendix-B-4.1">
-t:  </dt>
+        <dt id="appendix-B-4.1">t:</dt>
         <dd style="margin-left: 1.5em" id="appendix-B-4.2">
           <p id="appendix-B-4.2.1">The size of the authentication tag in bits. For this cipher, t is 128.<a href="#appendix-B-4.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="appendix-B-4.3">
-n:  </dt>
+<dt id="appendix-B-4.3">n:</dt>
         <dd style="margin-left: 1.5em" id="appendix-B-4.4">
           <p id="appendix-B-4.4.1">The size of the block function in bits. For this cipher, n is 128.<a href="#appendix-B-4.4.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="appendix-B-4.5">
-l:  </dt>
+<dt id="appendix-B-4.5">l:</dt>
         <dd style="margin-left: 1.5em" id="appendix-B-4.6">
           <p id="appendix-B-4.6.1">The number of blocks in each packet (see below).<a href="#appendix-B-4.6.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="appendix-B-4.7">
-q:  </dt>
+<dt id="appendix-B-4.7">q:</dt>
         <dd style="margin-left: 1.5em" id="appendix-B-4.8">
           <p id="appendix-B-4.8.1">The number of genuine packets created and protected by endpoints. This value
 is the bound on the number of packets that can be protected before updating
 keys.<a href="#appendix-B-4.8.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="appendix-B-4.9">
-v:  </dt>
+<dt id="appendix-B-4.9">v:</dt>
         <dd style="margin-left: 1.5em" id="appendix-B-4.10">
           <p id="appendix-B-4.10.1">The number of forged packets that endpoints will accept. This value is the
 bound on the number of forged packets that an endpoint can reject before
