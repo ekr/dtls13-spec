@@ -831,7 +831,7 @@ address div.right {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rescorla, et al.</td>
-<td class="center">Expires 5 September 2022</td>
+<td class="center">Expires 16 September 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -847,12 +847,12 @@ address div.right {
 <a href="https://www.rfc-editor.org/rfc/rfc6347" class="eref">6347</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-03-04" class="published">4 March 2022</time>
+<time datetime="2022-03-15" class="published">15 March 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-09-05">5 September 2022</time></dd>
+<dd class="expires"><time datetime="2022-09-16">16 September 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -900,7 +900,7 @@ forgery.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 September 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 September 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1457,7 +1457,7 @@ It MUST be ignored for all purposes. See <span>[<a href="#TLS13" class="xref">TL
 for the rationale for this.<a href="#section-4-6.2.1" class="pilcrow">¶</a></p>
 </dd>
         <dd class="break"></dd>
-<dt id="section-4-6.3">epoch:</dt>
+<dt id="section-4-6.3">epoch</dt>
         <dd style="margin-left: 1.5em" id="section-4-6.4">
           <p id="section-4-6.4.1">The least significant 2 bytes of the connection epoch value.<a href="#section-4-6.4.1" class="pilcrow">¶</a></p>
 </dd>
@@ -2947,6 +2947,10 @@ a peer is persistently sending bad messages and terminate the local
 connection state after such misbehavior is detected. Note that alerts
 are not reliably transmitted; implementations SHOULD NOT depend on
 receiving alerts in order to signal errors or connection closure.<a href="#section-5.10-1" class="pilcrow">¶</a></p>
+<p id="section-5.10-2">Any data received with an epoch/sequence number pair after
+that of a valid received closure alert MUST be ignored. Note:
+this is a change from TLS 1.3 which depends on the order of
+receipt rather than the epoch and sequence number.<a href="#section-5.10-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="establishing-new-associations-with-existing-parameters">
@@ -3667,10 +3671,7 @@ association; any such updated addresses are not covered by the cookie exchange
 during the handshake.
 DTLS implementations MUST NOT update the address they send to in response
 to packets from a different address unless they first perform some
-reachability test; no such test is defined in this specification and
-a future specification would need to specify a complete
-procedure for how and when to update addresses.
-Even
+reachability test; no such test is defined in this specification. Even
 with such a test, an active on-path adversary can also black-hole traffic or
 create a reflection attack against third parties because a DTLS peer
 has no means to distinguish a genuine address update event (for
@@ -3900,11 +3901,11 @@ as specified in Section 4.5.3 of RFC 9147.
 <dd class="break"></dd>
 <dt id="I-D.ietf-uta-tls13-iot-profile">[I-D.ietf-uta-tls13-iot-profile]</dt>
         <dd>
-<span class="refAuthor">Tschofenig, H.</span> and <span class="refAuthor">T. Fossati</span>, <span class="refTitle">"TLS/DTLS 1.3 Profiles for the Internet of Things"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-uta-tls13-iot-profile-03</span>, <time datetime="2021-10-25" class="refDate">25 October 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-uta-tls13-iot-profile-03.txt">https://www.ietf.org/archive/id/draft-ietf-uta-tls13-iot-profile-03.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Tschofenig, H.</span> and <span class="refAuthor">T. Fossati</span>, <span class="refTitle">"TLS/DTLS 1.3 Profiles for the Internet of Things"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-uta-tls13-iot-profile-04</span>, <time datetime="2022-03-07" class="refDate">7 March 2022</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-ietf-uta-tls13-iot-profile-04.txt">https://www.ietf.org/archive/id/draft-ietf-uta-tls13-iot-profile-04.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.irtf-cfrg-aead-limits">[I-D.irtf-cfrg-aead-limits]</dt>
         <dd>
-<span class="refAuthor">Günther, F.</span>, <span class="refAuthor">Thomson, M.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Usage Limits on AEAD Algorithms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-aead-limits-03</span>, <time datetime="2021-07-12" class="refDate">12 July 2021</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-irtf-cfrg-aead-limits-03.txt">https://www.ietf.org/archive/id/draft-irtf-cfrg-aead-limits-03.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Günther, F.</span>, <span class="refAuthor">Thomson, M.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"Usage Limits on AEAD Algorithms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-aead-limits-04</span>, <time datetime="2022-03-07" class="refDate">7 March 2022</time>, <span>&lt;<a href="https://www.ietf.org/archive/id/draft-irtf-cfrg-aead-limits-04.txt">https://www.ietf.org/archive/id/draft-irtf-cfrg-aead-limits-04.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2522">[RFC2522]</dt>
         <dd>
